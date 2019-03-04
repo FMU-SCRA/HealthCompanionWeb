@@ -97,10 +97,10 @@
           <div class="form-group">
             <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Longitude (Format: -00.00000)" required>
           </div>
-          <div id="services">
+          <!-- <div id="services">
                 <h5>Blood Pressure</h5>
             <div class="form-group">
-              <input type="checkbox" class="form-control" id="bp" name="b"  width="100px"required>
+              <input type="checkbox" class="form-control" id="bp" name="b"  style="width="1""required>
             </div>
                 <h5>Blood Sugar</h5>
             <div class="form-group">
@@ -122,7 +122,15 @@
             <div class="form-group">
               <input type="checkbox" class="form-control" id="shing" name="long"  required>
             </div>
-          </div>
+          </div> -->
+
+
+
+
+                    <div class="form-group">
+                    <textarea class="form-control" type="textarea" id="services" placeholder="Services (Format: Seperate By Commas)" maxlength="140" rows="3"></textarea>
+                        <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
+                    </div>
 
         <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
         </form>
