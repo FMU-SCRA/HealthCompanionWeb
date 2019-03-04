@@ -1,0 +1,66 @@
+body {
+  color: #1c676a;
+  background-color: #52c4ca!important;
+  font-family: "IBM Plex Sans";
+  width: 100%;
+}
+
+hr {
+  color: white;
+}
+
+body > div.container-fluid {
+  margin-top: 50px;
+}
+
+#toggle {
+  color: white;
+  /* margin-left: 10px;
+  margin-right: 10px; */
+  text-align: left;
+  display: block;
+}
+
+#toggle:hover {
+  cursor: pointer;
+}
+
+#googlePlayBadge {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+}
+
+#appIcon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
+#downloadText {
+  color: white;
+  text-align: center;
+}
+
+#title {
+  color: white;
+  text-align: center;
+}
+
+#wrapper {
+  margin-left: 100px;
+  margin-right:100px;
+  width: auto;
+  margin-top: 70px;
+}
+
+@media screen and (max-width: 1000px) {
+  #wrapper {
+    margin-left: 55px;
+    margin-right: 55px;
+    width: auto;
+    margin-top: 70px;
+  }
+}

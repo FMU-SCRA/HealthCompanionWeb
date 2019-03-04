@@ -1,0 +1,28 @@
+@media screen and (max-width: 1000px){
+  #submit {
+      text-align: center;
+      /* margin-left: inherit; */
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+  }
+
+body {
+  color: white!important;
+}
+
+}
+
+body {
+  color: white!important;
+}
+
+#submit {
+    text-align: center;
+    /* margin-left: inherit; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
