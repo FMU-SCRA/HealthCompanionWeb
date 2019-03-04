@@ -18,11 +18,45 @@ $(document).ready(function() {
 
 });
 
+
+
+
+// Initialize Firebase
+  // var config = {
+  //   apiKey: "AIzaSyCSz2T3eruA7DdHh9NjXsiBW4Bma0q1Khk",
+  //   authDomain: "health-companion-e4173.firebaseapp.com",
+  //   databaseURL: "https://health-companion-e4173.firebaseio.com",
+  //   projectId: "health-companion-e4173",
+  //   storageBucket: "health-companion-e4173.appspot.com",
+  //   messagingSenderId: "145726564870"
+  // };
+
+  firebase.initializeApp({
+  apiKey: "AIzaSyCSz2T3eruA7DdHh9NjXsiBW4Bma0q1Khk",
+  authDomain: "health-companion-e4173.firebaseapp.com",
+  projectId: "health-companion-e4173"
+});
+
+  // this will initialize firebase with out site.
+  // firebase.initializeApp(config);
+
+  var db = firebase.firestore();
+
+
+// Reference Locations collection
+
 document.getElementById('clinicForm').addEventListener('submit', submitForm);
 
+// Submit form
 function submitForm(e) {
   e.preventDefault();
   console.log(123);
+  var bloodPressureBool = false;
+  var bloodSugarBool = false;
+  var cholesterolBool = false;
+  var fluShotBool = false;
+  var pneumoniaBool = false;
+  var shinglesBool =  false;
 
 var clinicName = getInputVal('clinicName');
 var address = getInputVal('address');
@@ -34,14 +68,120 @@ var hours = getInputVal('hours');
 var website = getInputVal('url');
 var latitude = getInputVal('lat');
 var longitude = getInputVal('longitude');
+var location = new firebase.firestore.GeoPoint(parseFloat(latitude), parseFloat(longitude));
 
 console.log(clinicName);
 
 // below will be the services in message
 var services = getInputVal('services');
+// var resultPartOne = services.toUpperCase();
+var resultPartTwo = services.toUpperCase();
+
+if(resultPartTwo.includes("BLOOD PRESSURE")) {
+  bloodPressureBool = true;
+}
+
+if(resultPartTwo.includes("SUGAR")) {
+  bloodSugarBool = true;
+}
+if(resultPartTwo.includes("CHOLESTEROL")) {
+  cholesterolBool = true;
+}
+if(resultPartTwo.includes("FLU")) {
+  fluShotBool = true;
+}
+if(resultPartTwo.includes("PNEUMONIA")) {
+  pneumoniaBool = true;
+}
+if(resultPartTwo.includes("SHINGLES")) {
+  shinglesBool = true;
+}
+
+db.collection("Locations").add({
+  clinicName: clinicName,
+  address: address,
+  state: state,
+  phone: phone,
+  zip: zip,
+  hours: hours,
+  website: website,
+  location: location,
+  serviceBloodPressure: bloodPressureBool,
+  serviceBloodSugar: bloodSugarBool,
+  serviceCholesterol: cholesterolBool,
+  serviceFlu: fluShotBool,
+  servicePneumonia: pneumoniaBool,
+  serviceShingles: shinglesBool
+})
+.then(function(docRef) {
+    console.log("Document written with ID: ", docRef.id);
+})
+.catch(function(error) {
+    console.error("Error adding document: ", error);
+});
+
+
+// var setDoc = db.collection('Locations').doc(clinicName).set(saveLocation(clinicName, address, city, state, phone, zip, hours, website, location, bloodPressureBool, bloodSugarBool, cholesterolBool, fluShotBool, pneumoniaBool, shinglesBool));
+// saveLocation(clinicName, address, city, state, phone, zip, hours, website, location, bloodPressureBool, bloodSugarBool, cholesterolBool, fluShotBool, pneumoniaBool, shinglesBool);
 
 }
 
 function getInputVal(id) {
   return document.getElementById(id).value;
 }
+
+// function getServicesBoolean(services) {
+//   var bloodPressureBool = false;
+//   var bloodSugarBool = false;
+//   var cholesterolBool = false;
+//   var fluShotBool = false;
+//   var pneumoniaBool = false;
+//   var shinglesBool =  false;
+//
+//   // var resultPartOne = services.toUpperCase();
+//   var resultPartTwo = services.toUpperCase();
+//
+//   if(resultPartTwo.includes("BLOOD PRESSURE")) {
+//     bloodPressureBool = true;
+//   }
+//
+//   if(resultPartTwo.includes("SUGAR")) {
+//     bloodSugarBool = true;
+//   }
+//   if(resultPartTwo.includes("CHOLESTEROL")) {
+//     cholesterolBool = true;
+//   }
+//   if(resultPartTwo.includes("FLU")) {
+//     fluShotBool = true;
+//   }
+//   if(resultPartTwo.includes("PNEUMONIA")) {
+//     pneumoniaBool = true;
+//   }
+//   if(resultPartTwo.includes("SHINGLES")) {
+//     shinglesBool = true;
+//   }
+//
+// }
+
+// function saveLocation(clinicName, address, city, state, phone, zip, hours, website, location, serviceBloodPressure, serviceBloodSugar, serviceCholesterol, serviceFlu, servicePneumonia, serviceShingles) {
+// var newLocationsRef = locationsRef.push();
+//
+// newLocationsRef.set({
+  // clinicName: clinicName,
+  // address: address,
+  // state: state,
+  // phone: phone,
+  // zip: zip,
+  // hours: hours,
+  // website: website,
+  // location: location,
+  // serviceBloodPressure: serviceBloodPressure,
+  // serviceBloodSugar: serviceBloodSugar,
+  // serviceCholesterol: serviceCholesterol,
+  // serviceFlu: serviceFlu,
+  // servicePneumonia: servicePneumonia,
+  // serviceShingles: serviceShingles
+//
+// })
+
+// }

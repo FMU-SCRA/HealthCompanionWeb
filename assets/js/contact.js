@@ -16,6 +16,6 @@ $(document).ready(function(){
         }
     });
 
-        $('#datetimepicker1').datetimepicker().show();
+        // $('#datetimepicker1').datetimepicker().show();
 
 });
