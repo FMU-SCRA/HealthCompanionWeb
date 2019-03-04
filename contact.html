@@ -7,7 +7,7 @@
       <meta name="author" content="Matt Harrington">
 
       <title>Adding a Clinic</title>
-      <link rel="icon" href="assets/images/Logo Draft 1 M2H.png" type="image/">
+      <link rel="icon" href="assets/images/appicon.png" type="image/">
       <!-- Custom CSS -->
       <link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
       <link rel="stylesheet" type="text/css" href="assets/css/header.css"/>
@@ -64,23 +64,71 @@
 
 <div class="container-fluid" id="wrapper">
   <div class="form-area">
-        <form role="form">
+        <form role="form" id= "clinicForm">
         <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center;">Clinic Form</h3>
     				<div class="form-group">
-						<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+						<input type="text" class="form-control" id="clinicName" name="clinicName" placeholder="Clinic Name" required>
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" id="email" name="email" placeholder="Date" required>
+						<input type="text" class="form-control" id="address" name="address" placeholder="Address" required>
+					</div>
+          <div class="form-group">
+						<input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+					</div>
+          <div class="form-group">
+						<input type="text" class="form-control" id="state" name="state" placeholder="State" required>
+					</div>
+          <div class="form-group">
+						<input type="text" class="form-control" id="zip" name="zip" placeholder="ZIP Code" required>
+					</div>
+          <div class="form-group">
+						<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone (Format: 12345678910)" required>
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Hours" required>
+						<input type="text" class="form-control" id="hours" name="hours" placeholder="Hours (Format: 09:00am-05:30pm)" required>
 					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" id="subject" name="subject" placeholder="Clinic Name" required>
-					</div>
+          <div class="form-group">
+            <input type="url" class="form-control" id="url" name="url" placeholder="Website (Format: www.mywebsite.com)" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="lat" name="lat" placeholder="Latitude (Format: 00.00000)" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Longitude (Format: -00.00000)" required>
+          </div>
+          <div id="services">
+                <h5>Blood Pressure</h5>
+            <div class="form-group">
+              <input type="checkbox" class="form-control" id="bp" name="b"  width="100px"required>
+            </div>
+                <h5>Blood Sugar</h5>
+            <div class="form-group">
+              <input type="checkbox" class="form-control" id="bs" name="long"  required>
+            </div>
+                <h5>Cholesterol</h5>
+            <div class="form-group">
+              <input type="checkbox" class="form-control" id="chol" name="long"  required>
+            </div>
+                <h5>Flu Shot</h5>
+            <div class="form-group">
+              <input type="checkbox" class="form-control" id="flu" name="long"  required>
+            </div>
+                <h5>Pneumonia</h5>
+            <div class="form-group">
+              <input type="checkbox" class="form-control" id="pneu" name="long"  required>
+            </div>
+                <h5>Shingles</h5>
+            <div class="form-group">
+              <input type="checkbox" class="form-control" id="shing" name="long"  required>
+            </div>
+          </div>
+
+
+
+
                     <div class="form-group">
-                    <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+                    <textarea class="form-control" type="textarea" id="services" placeholder="Services (Format: Seperate By Commas)" maxlength="140" rows="3"></textarea>
                         <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
                     </div>
 

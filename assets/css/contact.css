@@ -24,5 +24,29 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
 
+#services {
+
+}
+
+#bp {
+  width: 25px;
+  margin-right: 0px;
+  border-right: 0px;
+}
+#bs {
+    width: 25px;
+}
+#chol {
+  width: 25px;
+}
+#flu {
+    width: 25px;
+}
+#pneu{
+  width: 25px;
+}
+#shing {
+    width: 25px;
 }
