@@ -58,52 +58,57 @@ function submitForm(e) {
   var pneumoniaBool = false;
   var shinglesBool =  false;
 
-var clinicName = getInputVal('clinicName');
-var address = getInputVal('address');
-var city = getInputVal('city');
-var state = getInputVal('state');
-var phone = getInputVal('phone');
-var zip = getInputVal('zip');
-var hours = getInputVal('hours');
-var website = getInputVal('url');
-var latitude = getInputVal('lat');
-var longitude = getInputVal('longitude');
-var location = new firebase.firestore.GeoPoint(parseFloat(latitude), parseFloat(longitude));
+  var clinicName = getInputVal('clinicName');
+  var address = getInputVal('address');
+  var city = getInputVal('city');
+  var state = getInputVal('state');
+  var phone = getInputVal('phone');
+  var zip = getInputVal('zip');
+  var hoursNormal = getInputVal('hoursNormal');
+  var hoursSat = getInputVal('hoursSat');
+  var hoursSun = getInputVal('hoursSun');
+  var website = getInputVal('url');
+  var latitude = getInputVal('lat');
+  var longitude = getInputVal('longitude');
+  var location = new firebase.firestore.GeoPoint(parseFloat(latitude), parseFloat(longitude));
 
-console.log(clinicName);
+  console.log(clinicName);
 
-// below will be the services in message
-var services = getInputVal('services');
-// var resultPartOne = services.toUpperCase();
-var resultPartTwo = services.toUpperCase();
+  // below will be the services in message
+  var services = getInputVal('services');
+  // var resultPartOne = services.toUpperCase();
+  var resultPartTwo = services.toUpperCase();
 
-if(resultPartTwo.includes("BLOOD PRESSURE")) {
-  bloodPressureBool = true;
-}
+  if(resultPartTwo.includes("BLOOD PRESSURE")) {
+    bloodPressureBool = true;
+  }
 
-if(resultPartTwo.includes("SUGAR")) {
-  bloodSugarBool = true;
-}
-if(resultPartTwo.includes("CHOLESTEROL")) {
-  cholesterolBool = true;
-}
-if(resultPartTwo.includes("FLU")) {
-  fluShotBool = true;
-}
-if(resultPartTwo.includes("PNEUMONIA")) {
-  pneumoniaBool = true;
-}
-if(resultPartTwo.includes("SHINGLES")) {
-  shinglesBool = true;
+  if(resultPartTwo.includes("SUGAR")) {
+    bloodSugarBool = true;
+  }
+  if(resultPartTwo.includes("CHOLESTEROL")) {
+    cholesterolBool = true;
+  }
+  if(resultPartTwo.includes("FLU")) {
+    fluShotBool = true;
+  }
+  if(resultPartTwo.includes("PNEUMONIA")) {
+    pneumoniaBool = true;
+  }
+  if(resultPartTwo.includes("SHINGLES")) {
+    shinglesBool = true;
 }
 
 db.collection("Locations").add({
   clinicName: clinicName,
+  city: city,
   address: address,
   state: state,
   phone: phone,
   zip: zip,
-  hours: hours,
+  hoursNormal: hoursNormal,
+  hoursSat: hoursSat,
+  hoursSun: hoursSun,
   website: website,
   location: location,
   serviceBloodPressure: bloodPressureBool,
@@ -129,59 +134,3 @@ db.collection("Locations").add({
 function getInputVal(id) {
   return document.getElementById(id).value;
 }
-
-// function getServicesBoolean(services) {
-//   var bloodPressureBool = false;
-//   var bloodSugarBool = false;
-//   var cholesterolBool = false;
-//   var fluShotBool = false;
-//   var pneumoniaBool = false;
-//   var shinglesBool =  false;
-//
-//   // var resultPartOne = services.toUpperCase();
-//   var resultPartTwo = services.toUpperCase();
-//
-//   if(resultPartTwo.includes("BLOOD PRESSURE")) {
-//     bloodPressureBool = true;
-//   }
-//
-//   if(resultPartTwo.includes("SUGAR")) {
-//     bloodSugarBool = true;
-//   }
-//   if(resultPartTwo.includes("CHOLESTEROL")) {
-//     cholesterolBool = true;
-//   }
-//   if(resultPartTwo.includes("FLU")) {
-//     fluShotBool = true;
-//   }
-//   if(resultPartTwo.includes("PNEUMONIA")) {
-//     pneumoniaBool = true;
-//   }
-//   if(resultPartTwo.includes("SHINGLES")) {
-//     shinglesBool = true;
-//   }
-//
-// }
-
-// function saveLocation(clinicName, address, city, state, phone, zip, hours, website, location, serviceBloodPressure, serviceBloodSugar, serviceCholesterol, serviceFlu, servicePneumonia, serviceShingles) {
-// var newLocationsRef = locationsRef.push();
-//
-// newLocationsRef.set({
-  // clinicName: clinicName,
-  // address: address,
-  // state: state,
-  // phone: phone,
-  // zip: zip,
-  // hours: hours,
-  // website: website,
-  // location: location,
-  // serviceBloodPressure: serviceBloodPressure,
-  // serviceBloodSugar: serviceBloodSugar,
-  // serviceCholesterol: serviceCholesterol,
-  // serviceFlu: serviceFlu,
-  // servicePneumonia: servicePneumonia,
-  // serviceShingles: serviceShingles
-//
-// })
-
-// }
