@@ -50,7 +50,6 @@ document.getElementById('clinicForm').addEventListener('submit', submitForm);
 // Submit form
 function submitForm(e) {
   e.preventDefault();
-  console.log(123);
   var bloodPressureBool = false;
   var bloodSugarBool = false;
   var cholesterolBool = false;
@@ -125,7 +124,7 @@ db.collection("Locations").add({
     console.error("Error adding document: ", error);
 });
 
-
+document.getElementById('clinicForm').reset();
 // var setDoc = db.collection('Locations').doc(clinicName).set(saveLocation(clinicName, address, city, state, phone, zip, hours, website, location, bloodPressureBool, bloodSugarBool, cholesterolBool, fluShotBool, pneumoniaBool, shinglesBool));
 // saveLocation(clinicName, address, city, state, phone, zip, hours, website, location, bloodPressureBool, bloodSugarBool, cholesterolBool, fluShotBool, pneumoniaBool, shinglesBool);
 
@@ -134,3 +133,4 @@ db.collection("Locations").add({
 function getInputVal(id) {
   return document.getElementById(id).value;
 }
+// location.reload(document.getElementById("clinic").reset());
