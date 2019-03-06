@@ -19,18 +19,6 @@ $(document).ready(function() {
 });
 
 
-
-
-// Initialize Firebase
-  // var config = {
-  //   apiKey: "AIzaSyCSz2T3eruA7DdHh9NjXsiBW4Bma0q1Khk",
-  //   authDomain: "health-companion-e4173.firebaseapp.com",
-  //   databaseURL: "https://health-companion-e4173.firebaseio.com",
-  //   projectId: "health-companion-e4173",
-  //   storageBucket: "health-companion-e4173.appspot.com",
-  //   messagingSenderId: "145726564870"
-  // };
-
   firebase.initializeApp({
   apiKey: "AIzaSyCSz2T3eruA7DdHh9NjXsiBW4Bma0q1Khk",
   authDomain: "health-companion-e4173.firebaseapp.com",
@@ -123,8 +111,9 @@ db.collection("Locations").add({
 .catch(function(error) {
     console.error("Error adding document: ", error);
 });
+//
+// document.getElementById('clinicForm').reset();
 
-document.getElementById('clinicForm').reset();
 // var setDoc = db.collection('Locations').doc(clinicName).set(saveLocation(clinicName, address, city, state, phone, zip, hours, website, location, bloodPressureBool, bloodSugarBool, cholesterolBool, fluShotBool, pneumoniaBool, shinglesBool));
 // saveLocation(clinicName, address, city, state, phone, zip, hours, website, location, bloodPressureBool, bloodSugarBool, cholesterolBool, fluShotBool, pneumoniaBool, shinglesBool);
 
