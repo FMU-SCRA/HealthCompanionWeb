@@ -1,13 +1,42 @@
 'use strict';
-// Initialize Firebase
-  // var config = {
-  //   apiKey: "AIzaSyCSz2T3eruA7DdHh9NjXsiBW4Bma0q1Khk",
-  //   authDomain: "health-companion-e4173.firebaseapp.com",
-  //   databaseURL: "https://health-companion-e4173.firebaseio.com",
-  //   projectId: "health-companion-e4173",
-  //   storageBucket: "health-companion-e4173.appspot.com",
-  //   messagingSenderId: "145726564870"
-  // };
+
+$(document).ready(function(){
+
+  // slider
+  var slider = $('#slider').slideReveal(); // slideReveal return $('#slider')
+
+  $("#sidebar-wrapper").slideReveal({
+    trigger: $("#toggle"),
+    push: false,
+    speed: 200,
+    overlay: true
+  });
+
+  // this allows the second button to close the menu
+  $("#toggleSidebar").mousedown(function() {
+    $('#sidebar-wrapper').slideReveal("toggle");
+  });
+
+    // For the services text area
+    $('#characterLeft').text('140 characters left');
+    $('#services').keydown(function () {
+        var max = 140;
+        var len = $(this).val().length;
+        if (len >= max) {
+            $('#characterLeft').text('You have reached the limit');
+            $('#characterLeft').addClass('red');
+            $('#btnSubmit').addClass('disabled');
+        }
+        else {
+            var ch = max - len;
+            $('#characterLeft').text(ch + ' characters left');
+            $('#btnSubmit').removeClass('disabled');
+            $('#characterLeft').removeClass('red');
+        }
+    });
+
+
+});
 
   firebase.initializeApp({
   apiKey: "AIzaSyCSz2T3eruA7DdHh9NjXsiBW4Bma0q1Khk",

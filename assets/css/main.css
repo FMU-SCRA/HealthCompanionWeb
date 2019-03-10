@@ -60,19 +60,34 @@ body > div.container-fluid {
 #wrapper {
   width: auto;
   margin-top: 70px;
+  padding: 0;
+}
+
+#wrapperClinic {
+  width: auto;
+  margin-top: 70px;
+  margin-left: 150px;
+  margin-right:150px;
+  text-align: center;
 }
 
 @media screen and (max-width: 1000px) {
   #wrapper {
-    margin-left: 55px;
-    margin-right: 55px;
     width: auto;
-    margin-top: 70px;
+    margin-top: 6px;
   }
+
+  #wrapperClinic {
+    margin-left: 55px;
+    margin-right:55px;
+    width:auto;
+    text-align: center;
+  }
+
 
   #title {
     color: white;
-    position: static;
-    text-align: right;
+    position: fixed;
+    right: 6px;
   }
 }
