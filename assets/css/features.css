@@ -10,6 +10,8 @@ body {
       scroll-snap-points-y: repeat(100vh);
   -ms-scroll-snap-type: y mandatory;
       scroll-snap-type: y mandatory;
+
+    background-color: #65b4e4!important;
 }
 
 section {
@@ -22,14 +24,58 @@ section {
 }
 
 #services {
-  background-color: lightblue;
+  background-color: #65b4e4;
   width: 100%;
-  
+  color: white;
+
 }
 
 #journal {
-  background-color: lightgreen;
+  background-color: #1c676a;
   width: 100%;
+  color: white;
+}
+
+#blood-pressure {
+  background-color: #f26f88;
+  width: 100%;
+  color: white;
+}
+
+#blood-sugar {
+  background-color: #b297c7;
+  width: 100%;
+  color: white;
+}
+
+#cholesterol {
+  background-color: #daa03b;
+  width: 100%;
+  color: white;
+}
+
+#vaccinations {
+  background-color: #52c4ca;
+  width: 100%;
+  color: white;
+}
+
+#weight {
+  background-color: #f3711b;
+  width: 100%;
+  color: white;
+}
+
+#allergies {
+  background-color: #f5d34a;
+  width: 100%;
+  color: white;
+}
+
+#medications {
+  background-color: #fd91e7;
+  width: 100%;
+  color: white;
 }
 
 

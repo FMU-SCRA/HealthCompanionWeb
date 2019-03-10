@@ -23,7 +23,7 @@ body > div.container-fluid {
   margin-right: 10px; */
   text-align: left;
   display: block;
-      padding: 0;
+  padding: 0;
 }
 
 #toggle:hover {
@@ -55,6 +55,8 @@ body > div.container-fluid {
   position: static;
   text-align: right;
   margin-right: 15px;
+  margin-top: 6px;
+  z-index: 2;
 }
 
 #wrapper {
@@ -74,7 +76,7 @@ body > div.container-fluid {
 @media screen and (max-width: 1000px) {
   #wrapper {
     width: auto;
-    margin-top: 6px;
+    margin-top: 0px;
   }
 
   #wrapperClinic {
@@ -83,11 +85,10 @@ body > div.container-fluid {
     width:auto;
     text-align: center;
   }
-
-
   #title {
     color: white;
     position: fixed;
     right: 6px;
+    z-index: 2;
   }
 }
