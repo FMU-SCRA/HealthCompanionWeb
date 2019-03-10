@@ -9,3 +9,13 @@ const init = function(){
     cssScrollSnapPolyfill()
 }
 init();
+
+$(".myList li").each(function (i) {
+    $(this).attr("style", "-webkit-animation-delay:" + i * 200 + "ms;"
+                 + "-moz-animation-delay:" + i * 200 + "ms;"
+                 + "-o-animation-delay:" + i * 200 + "ms;"
+                 + "animation-delay:" + i * 200 + "ms;");
+    if (i == $(".myList li").size() -1) {
+        $(".myList").addClass("play")
+    }
+});

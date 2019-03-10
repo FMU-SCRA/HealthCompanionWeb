@@ -3,13 +3,12 @@
   height: 50px!important;
   background: #1c676a!important;
   opacity: 0.9;
-  width: 100%;
-  -webkit-user-select: none;
+  width: auto;
 }
 
-#matt2LogoHome {
+/* #matt2LogoHome {
   margin-right: 10px;
-}
+} */
 
 #topLabels {
   text-align: right;
