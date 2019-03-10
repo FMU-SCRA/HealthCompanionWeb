@@ -11,6 +11,10 @@ hr {
 
 body > div.container-fluid {
   margin-top: 50px;
+  width:100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
 }
 
 #toggle {
@@ -19,6 +23,7 @@ body > div.container-fluid {
   margin-right: 10px; */
   text-align: left;
   display: block;
+      padding: 0;
 }
 
 #toggle:hover {
@@ -29,6 +34,7 @@ body > div.container-fluid {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 30px;
   width: 250px;
 }
 
@@ -46,12 +52,12 @@ body > div.container-fluid {
 
 #title {
   color: white;
-  text-align: center;
+  position: static;
+  text-align: right;
+  margin-right: 15px;
 }
 
 #wrapper {
-  margin-left: 100px;
-  margin-right:100px;
   width: auto;
   margin-top: 70px;
 }
@@ -62,5 +68,11 @@ body > div.container-fluid {
     margin-right: 55px;
     width: auto;
     margin-top: 70px;
+  }
+
+  #title {
+    color: white;
+    position: static;
+    text-align: right;
   }
 }
