@@ -34,8 +34,10 @@ body > div.container-fluid {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 30px;
   margin-bottom: 30px;
-  width: 250px;
+  height:50px;
+  width: 175px;
 }
 
 #appIcon {
@@ -88,7 +90,9 @@ body > div.container-fluid {
   #title {
     color: white;
     position: fixed;
-    right: 6px;
+    right: 30px;
+    margin-top: 11px;
     z-index: 2;
+    font-size: 25px;
   }
 }
