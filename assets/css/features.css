@@ -85,6 +85,10 @@ section {
   margin-left: 30px;
 }
 
+#services-phone {
+  margin-top: 200px;
+}
+
 #journal-title {
   text-align:left;
   /* display: block; */
@@ -145,6 +149,14 @@ section {
   margin-left: 30px;
 }
 
+#logoImage {
+  float: right;
+  width: 165px;
+  height: 50px;
+  margin-top: 40px;
+}
+
+
 ul {
   list-style-type: none;
   overflow: hidden;
@@ -185,6 +197,10 @@ li {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
+services-phone {
+  animation: fadeIn 600ms ease-in;
+  animation-play-state: running;
+}
 
 
 h1 {
@@ -201,65 +217,67 @@ h1 {
 
 @media screen and (max-width: 1000px) {
   #blood-pressure-title {
-    text-align:left;
-    display: block;
-    margin-top: 360px;
-    margin-left: 30px;
+    text-align:right;
+    /* display: block; */
+    margin-top: -375px;
+    margin-left: -20px;
   }
 
   #services-title {
-    text-align:left;
+    text-align:right;
     /* display: block; */
-    margin-top: 360px;
-    margin-left: 30px;
+    margin-top: -375px;
+    margin-left: -20px;
   }
 
   #journal-title {
-    text-align:left;
+    text-align:right;
     /* display: block; */
-    margin-top: 360px;
-    margin-left: 30px;
+    margin-top: -375px;
+    margin-left: -20px;
   }
 
   #blood-sugar-title {
-    text-align:left;
+    text-align:right;
     /* display: block; */
-    margin-top: 360px;
-    margin-left: 30px;
+    margin-top: -375px;
+    margin-left: -20px;
   }
 
   #cholesterol-title {
-    text-align:left;
+    text-align:right;
     /* display: block; */
-    margin-top: 360px;
-    margin-left: 30px;
+    margin-top: -375px;
+    margin-left: -20px;
   }
 
   #vaccinations-title {
-    text-align:left;
+    text-align:right;
     /* display: block; */
-    margin-top: 360px;
-    margin-left: 30px;
+    margin-top: -375px;
+    margin-left: -20px;
   }
 
   #body-weight-title {
-    text-align:left;
+    text-align:right;
     /* display: block; */
-    margin-top: 360px;
-    margin-left: 30px;
+    margin-top: -375px;
+    margin-left: -20px;
   }
 
   #allergies-title {
-    text-align:left;
+    text-align:right;
     /* display: block; */
-    margin-top: 360px;
-    margin-left: 30px;
+    margin-top: -375px;
+    margin-left: -20px;
   }
 
   #medications-title {
-    text-align:left;
+    text-align:right;
     /* display: block; */
-    margin-top: 360px;
-    margin-left: 30px;
+    margin-top: -375px;
+    margin-left: -20px;
   }
+
+
 }
