@@ -85,6 +85,21 @@ section {
   left: 2%;
 }
 
+.mySlidesServices {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#services-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
+}
+
 #services-phone {
   margin-top: 200px;
 }
@@ -96,6 +111,21 @@ section {
   left: 2%;
 }
 
+.mySlidesJournal {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#journal-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
+}
+
 #blood-pressure-title {
   text-align:left;
   /* display: block; */
@@ -103,8 +133,8 @@ section {
   left: 2%;
 }
 
-#blood-pressure-phone {
-  top: 25%;
+.mySlidesBP {
+  top: 30%;
   position: absolute;
   left: 10%;
 }
@@ -125,11 +155,41 @@ section {
   left: 2%;
 }
 
+.mySlidesBS {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#bs-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
+}
+
 #cholesterol-title {
   text-align:left;
   /* display: block; */
   top: 95%;
   left: 2%;
+}
+
+.mySlidesCholesterol {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#cholesterol-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
 }
 
 #vaccinations-title {
@@ -139,11 +199,41 @@ section {
   left: 2%;
 }
 
+.mySlidesVaccinations {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#vaccinations-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
+}
+
 #body-weight-title {
   text-align:left;
   /* display: block; */
   top: 95%;
   left: 2%;
+}
+
+.mySlidesWeight {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#weight-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
 }
 
 #allergies-title {
@@ -153,11 +243,41 @@ section {
   left: 2%;
 }
 
+.mySlidesAllergies {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#allergies-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
+}
+
 #medications-title {
   text-align:left;
   /* display: block; */
   top: 95%;
   left: 2%;
+}
+
+.mySlidesMedications {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#medications-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
 }
 
 #logoImage {
@@ -220,6 +340,7 @@ ul {
 
 li {
   margin-left: 15px;
+  /* visibility: hidden; */
 }
 
 #bpButton {
