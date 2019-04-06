@@ -81,8 +81,8 @@ section {
 #services-title {
   text-align:left;
   /* display: block; */
-  margin-top: 400px;
-  margin-left: 30px;
+  top: 95%;
+  left: 2%;
 }
 
 #services-phone {
@@ -92,61 +92,72 @@ section {
 #journal-title {
   text-align:left;
   /* display: block; */
-  margin-top: 400px;
-  margin-left: 30px;
+  top: 95%;
+  left: 2%;
 }
 
 #blood-pressure-title {
   text-align:left;
   /* display: block; */
-  margin-top: 400px;
-  margin-left: 30px;
+  top: 95%;
+  left: 2%;
 }
 
 #blood-pressure-phone {
-  margin-top: 200px;
+  top: 25%;
+  position: absolute;
+  left: 10%;
+}
+
+#bp-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
 }
 
 #blood-sugar-title {
   text-align:left;
   display: block;
-  margin-top: 400px;
-  margin-left: 30px;
+  top: 95%;
+  left: 2%;
 }
 
 #cholesterol-title {
   text-align:left;
   /* display: block; */
-  margin-top: 400px;
-  margin-left: 30px;
+  top: 95%;
+  left: 2%;
 }
 
 #vaccinations-title {
   text-align:left;
   /* display: block; */
-  margin-top: 400px;
-  margin-left: 30px;
+  top: 95%;
+  left: 2%;
 }
 
 #body-weight-title {
   text-align:left;
   /* display: block; */
-  margin-top: 400px;
-  margin-left: 30px;
+  top: 95%;
+  left: 2%;
 }
 
 #allergies-title {
   text-align:left;
   /* display: block; */
-  margin-top: 400px;
-  margin-left: 30px;
+  top: 95%;
+  left: 2%;
 }
 
 #medications-title {
   text-align:left;
   /* display: block; */
-  margin-top: 400px;
-  margin-left: 30px;
+  top: 95%;
+  left: 2%;
 }
 
 #logoImage {
@@ -207,7 +218,13 @@ ul {
   list-style-type: none;
 }
 
-li {display:none;}
+li {
+  margin-left: 15px;
+}
+
+#bpButton {
+  visibility: hidden;
+}
 
 
 h1 {
@@ -224,66 +241,53 @@ h1 {
 
 @media screen and (max-width: 1000px) {
   #blood-pressure-title {
-    text-align:right;
     /* display: block; */
-    margin-top: -375px;
-    margin-left: -20px;
+    right: 20%;
   }
 
   #services-title {
-    text-align:right;
     /* display: block; */
-    margin-top: -375px;
-    margin-left: -20px;
+    right: 20%;
   }
 
   #journal-title {
-    text-align:right;
     /* display: block; */
-    margin-top: -375px;
-    margin-left: -20px;
+    right: 20%;
   }
 
   #blood-sugar-title {
-    text-align:right;
-    /* display: block; */
-    margin-top: -375px;
-    margin-left: -20px;
+    right: 20%;
   }
 
   #cholesterol-title {
-    text-align:right;
     /* display: block; */
-    margin-top: -375px;
-    margin-left: -20px;
+    right: 20%;
   }
 
   #vaccinations-title {
-    text-align:right;
     /* display: block; */
-    margin-top: -375px;
-    margin-left: -20px;
+    right: 20%;
   }
 
   #body-weight-title {
-    text-align:right;
     /* display: block; */
-    margin-top: -375px;
-    margin-left: -20px;
+    right: 20%;
   }
 
   #allergies-title {
-    text-align:right;
     /* display: block; */
-    margin-top: -375px;
-    margin-left: -20px;
+    right: 20%;
   }
 
   #medications-title {
-    text-align:right;
     /* display: block; */
-    margin-top: -375px;
-    margin-left: -20px;
+    right: 20%;
+  }
+  img {
+    visibility: hidden;
+  }
+  li {
+    font-size: 15px;
   }
 
 

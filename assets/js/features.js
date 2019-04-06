@@ -20,16 +20,28 @@ const gra = function(min, max) {
 //     }
 // });
 
-$(window).scroll(function() {
-  var i = 0;
-  console.log("TEST");
-  // $( "ul li" ).css( "display", "inline" ).fadeIn( "slow" );
-  $('ul li').each(function() {
-    var _this = $(this);
-    setTimeout(function() {
-      _this.fadeIn();
-    }, i*1000);
-    i++;
-  });
+// $(window).on('load', function(){
+//   var i = 0;
+//   $('ul li').each(function() {
+//     var _this = $(this);
+//     setTimeout(function() {
+//       _this.fadeIn();
+//     }, i*1000);
+//     i++;
+//   });
+// });
 
-});
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1}
+  x[slideIndex-1].style.display = "block";
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
