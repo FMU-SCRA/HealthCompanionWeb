@@ -157,7 +157,7 @@ section {
 }
 
 
-ul {
+/* ul {
   list-style-type: none;
   overflow: hidden;
   padding: 0;
@@ -197,10 +197,17 @@ li {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
+
 services-phone {
   animation: fadeIn 600ms ease-in;
   animation-play-state: running;
+} */
+
+ul {
+  list-style-type: none;
 }
+
+li {display:none;}
 
 
 h1 {
