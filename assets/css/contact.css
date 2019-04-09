@@ -26,8 +26,13 @@ body {
     margin-right: auto;
 }
 
-#services {
-
+#wrapper {
+  width: 400px;
+  text-align: center;
+  /* margin-left: inherit; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #bp {

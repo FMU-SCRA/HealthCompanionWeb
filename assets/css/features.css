@@ -1,0 +1,415 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  -ms-scroll-snap-type: mandatory;
+      scroll-snap-type: mandatory;
+  -ms-scroll-snap-points-y: repeat(100vh);
+      scroll-snap-points-y: repeat(100vh);
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+
+    background-color: #65b4e4!important;
+}
+
+section {
+  border-bottom: 1px solid white;
+  padding: 0;
+  height: 100vh;
+  scroll-snap-align: start;
+  text-align: center;
+  position: relative;
+}
+
+#services {
+  background-color: #65b4e4;
+  width: 100%;
+  color: white;
+
+}
+
+#journal {
+  background-color: #1c676a;
+  width: 100%;
+  color: white;
+}
+
+#blood-pressure {
+  background-color: #f26f88;
+  width: 100%;
+  color: white;
+}
+
+#blood-sugar {
+  background-color: #b297c7;
+  width: 100%;
+  color: white;
+}
+
+#cholesterol {
+  background-color: #daa03b;
+  width: 100%;
+  color: white;
+}
+
+#vaccinations {
+  background-color: #52c4ca;
+  width: 100%;
+  color: white;
+}
+
+#weight {
+  background-color: #f3711b;
+  width: 100%;
+  color: white;
+}
+
+#allergies {
+  background-color: #f5d34a;
+  width: 100%;
+  color: white;
+}
+
+#medications {
+  background-color: #fd91e7;
+  width: 100%;
+  color: white;
+}
+
+#services-title {
+  text-align:left;
+  /* display: block; */
+  top: 95%;
+  left: 2%;
+}
+
+.mySlidesServices {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#services-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
+}
+
+#services-phone {
+  margin-top: 200px;
+}
+
+#journal-title {
+  text-align:left;
+  /* display: block; */
+  top: 95%;
+  left: 2%;
+}
+
+.mySlidesJournal {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#journal-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
+}
+
+#blood-pressure-title {
+  text-align:left;
+  /* display: block; */
+  top: 95%;
+  left: 2%;
+}
+
+.mySlidesBP {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#bp-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
+}
+
+#blood-sugar-title {
+  text-align:left;
+  display: block;
+  top: 95%;
+  left: 2%;
+}
+
+.mySlidesBS {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#bs-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
+}
+
+#cholesterol-title {
+  text-align:left;
+  /* display: block; */
+  top: 95%;
+  left: 2%;
+}
+
+.mySlidesCholesterol {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#cholesterol-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
+}
+
+#vaccinations-title {
+  text-align:left;
+  /* display: block; */
+  top: 95%;
+  left: 2%;
+}
+
+.mySlidesVaccinations {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#vaccinations-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
+}
+
+#body-weight-title {
+  text-align:left;
+  /* display: block; */
+  top: 95%;
+  left: 2%;
+}
+
+.mySlidesWeight {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#weight-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
+}
+
+#allergies-title {
+  text-align:left;
+  /* display: block; */
+  top: 95%;
+  left: 2%;
+}
+
+.mySlidesAllergies {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#allergies-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
+}
+
+#medications-title {
+  text-align:left;
+  /* display: block; */
+  top: 95%;
+  left: 2%;
+}
+
+.mySlidesMedications {
+  top: 30%;
+  position: absolute;
+  left: 10%;
+}
+
+#medications-list {
+  font-size: 25px;
+  top: 40%;
+  position: absolute;
+  right: 20%;
+  text-align: left;
+  list-style-position: inside;
+}
+
+#logoImage {
+  float: right;
+  width: 165px;
+  height: 50px;
+  margin-top: 40px;
+}
+
+
+/* ul {
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0;
+}
+
+li {
+  transform: translateX(-100%);
+  transition: transform 0.5s, opacity 2s;
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+li {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background: pink;
+    margin-bottom: 10px;
+}
+
+.myList li {
+    opacity: 0;
+    position: relative;
+    animation: fadeIn 600ms ease both;
+    animation-play-state: paused;
+}
+
+.myList.play li {
+    animation-play-state: running;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+services-phone {
+  animation: fadeIn 600ms ease-in;
+  animation-play-state: running;
+} */
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin-left: 15px;
+  /* visibility: hidden; */
+}
+
+#bpButton {
+  visibility: hidden;
+}
+
+
+h1 {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  text-align: center;
+  color: white;
+  width: 100%;
+  left: 0;
+  font-size: calc(1rem + 3vw);
+}
+
+@media screen and (max-width: 1000px) {
+  #blood-pressure-title {
+    /* display: block; */
+    right: 20%;
+  }
+
+  #services-title {
+    /* display: block; */
+    right: 20%;
+  }
+
+  #journal-title {
+    /* display: block; */
+    right: 20%;
+  }
+
+  #blood-sugar-title {
+    right: 20%;
+  }
+
+  #cholesterol-title {
+    /* display: block; */
+    right: 20%;
+  }
+
+  #vaccinations-title {
+    /* display: block; */
+    right: 20%;
+  }
+
+  #body-weight-title {
+    /* display: block; */
+    right: 20%;
+  }
+
+  #allergies-title {
+    /* display: block; */
+    right: 20%;
+  }
+
+  #medications-title {
+    /* display: block; */
+    right: 20%;
+  }
+  img {
+    visibility: hidden;
+  }
+  li {
+    font-size: 15px;
+  }
+
+
+}
