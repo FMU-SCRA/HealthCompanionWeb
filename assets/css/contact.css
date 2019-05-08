@@ -26,6 +26,21 @@ body {
     margin-right: auto;
 }
 
+.modal-content {
+  color: #52c4ca!important;
+}
+
+#removeClinic {
+  background: none;
+  color: white;
+  border-style: none;
+  outline: none;
+}
+
+#removeClinic:hover {
+  cursor: pointer;
+}
+
 #wrapper {
   width: 400px;
   text-align: center;

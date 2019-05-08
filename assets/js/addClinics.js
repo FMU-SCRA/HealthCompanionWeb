@@ -5,6 +5,8 @@ $(document).ready(function(){
   // slider
   var slider = $('#slider').slideReveal(); // slideReveal return $('#slider')
 
+  var confirmModalBtn = '<button type="button" id="confirmButtonFinal" class="btn btn-danger" data-dismiss="modal">I Have My ID</button>';
+
   $("#sidebar-wrapper").slideReveal({
     trigger: $("#toggle"),
     push: false,
@@ -85,7 +87,20 @@ function submitForm(e) {
   // var resultPartOne = services.toUpperCase();
   var resultPartTwo = services.toUpperCase();
 
+  if(resultPartTwo.includes("ALL")) {
+    bloodPressureBool = true;
+    bloodSugarBool = true;
+    cholesterolBool = true;
+    shinglesBool = true;
+    pneumoniaBool = true;
+    fluShotBool = true;
+  }
+
   if(resultPartTwo.includes("BLOOD PRESSURE")) {
+    bloodPressureBool = true;
+  }
+
+  if(resultPartTwo.includes("BP")) {
     bloodPressureBool = true;
   }
 
@@ -126,17 +141,75 @@ db.collection("Locations").add({
 })
 .then(function(docRef) {
     console.log("Document written with ID: ", docRef.id);
+
+    var confirmModalBtn = '<button type="button" id="confirmButtonFinal" class="btn btn-primary" data-dismiss="modal">I Have My ID</button>';
+
+    function openIDModal() {
+      createModal('idModal', 'Clinic Code', false,
+        "Please write down or save for furture reference." + "<br>Clinic ID: <b>" + docRef.id+"</b>", false, confirmModalBtn); // create reset modal for future use
+      // makes the modal open
+      $('#idModal').modal({
+        keyboard: false
+      });
+      // resets the form
+      document.getElementById('clinicForm').reset();
+    }
+
+    openIDModal();
+
 })
 .catch(function(error) {
     console.error("Error adding document: ", error);
 });
 
-document.getElementById('clinicForm').reset();
+
 // var setDoc = db.collection('Locations').doc(clinicName).set(saveLocation(clinicName, address, city, state, phone, zip, hours, website, location, bloodPressureBool, bloodSugarBool, cholesterolBool, fluShotBool, pneumoniaBool, shinglesBool));
 // saveLocation(clinicName, address, city, state, phone, zip, hours, website, location, bloodPressureBool, bloodSugarBool, cholesterolBool, fluShotBool, pneumoniaBool, shinglesBool);
+
+
+
+
 
 }
 
 function getInputVal(id) {
   return document.getElementById(id).value;
 }
+
+function createModal(ID, title, forceStay, modalBody, cancel, submitBtn) {
+    // create the modal html in string representation
+    var modal = '<div class="modal fade" id="' + ID + '" tabindex="-1" role="dialog" aria-labelledby="Clinic ID" aria-hidden="false" data-keyboard="false">';
+    if (forceStay) {
+      modal = '<div class="modal fade" id="' + ID + '" tabindex="-1" role="dialog" aria-labelledby="Clinic ID" aria-hidden="false" data-backdrop="static" data-keyboard="false" >';
+    }
+    modal += '<div class="modal-dialog modal-dialog-centered" role="document">';
+    modal += '<div class="modal-content">';
+    modal += '<div class="modal-header">';
+    modal += '<h5 class="modal-title">' + title + '</h5>';
+    modal += '</div>';
+    modal += '<div class="modal-body">';
+    modal += modalBody;
+    modal += '</div>';
+    modal += '<div class="modal-footer">';
+    // add the cancel button if it is wanted
+    if (cancel) {
+      modal += '<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>';
+    }
+    modal += submitBtn;
+    modal += '</div></div></div></div>';
+    // makes the modal appear by converting the strings above into HTML
+    document.body.insertAdjacentHTML('beforeend', modal);
+    // handles if there are any page size changes
+    $('#' + ID).modal('handleUpdate');
+  }
+
+  function openIDModal() {
+    createModal('idModal', 'Clinic Code', false,
+      "Please write down or save for furture reference.", true, confirmModalBtn); // create reset modal for future use
+    // makes the modal open
+    $('#idModal').modal({
+      keyboard: false
+    });
+    // resets the form
+    document.getElementById('clinicForm').reset();
+  }
