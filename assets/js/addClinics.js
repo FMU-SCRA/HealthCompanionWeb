@@ -6,6 +6,9 @@ $(document).ready(function(){
   var slider = $('#slider').slideReveal(); // slideReveal return $('#slider')
 
   var confirmModalBtn = '<button type="button" id="confirmButtonFinal" class="btn btn-danger" data-dismiss="modal">I Have My ID</button>';
+  var removeClinicBody = '<div class="form-group"><input id="clinicInput" type="text" class="form-control" name="clientIDBox" placeholder="ID" value=""></div>';
+
+
 
   $("#sidebar-wrapper").slideReveal({
     trigger: $("#toggle"),
@@ -166,10 +169,6 @@ db.collection("Locations").add({
 // var setDoc = db.collection('Locations').doc(clinicName).set(saveLocation(clinicName, address, city, state, phone, zip, hours, website, location, bloodPressureBool, bloodSugarBool, cholesterolBool, fluShotBool, pneumoniaBool, shinglesBool));
 // saveLocation(clinicName, address, city, state, phone, zip, hours, website, location, bloodPressureBool, bloodSugarBool, cholesterolBool, fluShotBool, pneumoniaBool, shinglesBool);
 
-
-
-
-
 }
 
 function getInputVal(id) {
@@ -203,13 +202,41 @@ function createModal(ID, title, forceStay, modalBody, cancel, submitBtn) {
     $('#' + ID).modal('handleUpdate');
   }
 
-  function openIDModal() {
-    createModal('idModal', 'Clinic Code', false,
-      "Please write down or save for furture reference.", true, confirmModalBtn); // create reset modal for future use
+
+
+
+  function openRemoveModal() {
+    var removeClinicModalBtn = '<button type="button" id="removeClinicButtonFinal" class="btn btn-danger" data-dismiss="modal">Remove</button>';
+    var removeClinicBody = '<div class="form-group"><input id="clinicInput" type="text" class="form-control" name="clientIDBox" placeholder="Clinic ID" value=""></div>';
+    createModal('removeModal', 'Remove Clinic', false,
+      "Please Enter Your Clinic ID:" + removeClinicBody, true, removeClinicModalBtn); // create reset modal for future use
     // makes the modal open
-    $('#idModal').modal({
+    $('#removeModal').modal({
       keyboard: false
     });
-    // resets the form
-    document.getElementById('clinicForm').reset();
+    // this function deletes the individual clinic by hash
+      function deleteClinic() {
+        var clinicID = getInputVal('clinicInput');
+
+        db.collection("Locations").doc(clinicID).delete().then(function() {
+            console.log("Document successfully deleted!");
+        }).catch(function(error) {
+            console.error("Error removing document: ", error);
+        });
+      }
+
+    var removeBtnModal = document.getElementById('removeClinicButtonFinal');
+    removeBtnModal.addEventListener('click', deleteClinic);
   }
+    // this opens the Remove Clinic Modal
+    document.getElementById("removeClinic").addEventListener('click', openRemoveModal);
+
+    // function getClinicID() {
+    //   clinicID = $('#clinicInput');
+    //   return clinicID.val();
+    // }
+
+
+
+
+      // document.getElementById("removeClinicButtonFinal").addEventListener('click', deleteClinic(getClinicID));
