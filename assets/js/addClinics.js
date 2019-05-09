@@ -223,10 +223,12 @@ function createModal(ID, title, forceStay, modalBody, cancel, submitBtn) {
         }).catch(function(error) {
             console.error("Error removing document: ", error);
         });
+        document.getElementById('clinicInput').value = "";
       }
 
     var removeBtnModal = document.getElementById('removeClinicButtonFinal');
     removeBtnModal.addEventListener('click', deleteClinic);
+
   }
     // this opens the Remove Clinic Modal
     document.getElementById("removeClinic").addEventListener('click', openRemoveModal);
