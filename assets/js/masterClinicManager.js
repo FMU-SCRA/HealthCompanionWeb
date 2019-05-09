@@ -15,9 +15,17 @@ projectId: "health-companion-e4173"
   var db = firebase.firestore();
 
 
-const clinicList = document.querySelector('#clinic-list');
+const clinicListButtons = document.querySelector('#clinic-button');
+// const clinicList = document.querySelector('#clinic-list');
+// const contentDiv = document.querySelector('#content');
 
 function renderClinic(doc) {
+  let button = document.createElement('button');
+
+  let content = document.createElement('div');
+
+  content.setAttribute('class', "content")
+
   let li = document.createElement('li');
 
   let clinicID = document.createElement('span');
@@ -32,11 +40,11 @@ function renderClinic(doc) {
 
   let state = document.createElement('span');
 
+  let zip = document.createElement('span');
+
   let phoneTitle = document.createElement('span');
 
   let phone = document.createElement('span');
-
-  let zip = document.createElement('span');
 
   let hoursNormalTitle = document.createElement('span');
   let hoursNormal = document.createElement('span');
@@ -61,6 +69,8 @@ function renderClinic(doc) {
   let shinglesBool = document.createElement('span');
 
   li.setAttribute('data-id', doc.id);
+
+  button.setAttribute('class', "collapsible")
 
   clinicID.textContent = doc.id;
 
@@ -101,68 +111,72 @@ function renderClinic(doc) {
   pneumoniaBool.textContent = doc.data().servicePneumonia;
   shinglesBool.textContent = doc.data().serviceShingles;
 
-  li.appendChild(clinicID);
-  li.appendChild(clinicName);
-  li.appendChild(addressTitle);
-  li.appendChild(address);
-  li.appendChild(city);
-  li.appendChild(state);
-  li.appendChild(zip);
-  li.appendChild(phoneTitle);
-  li.appendChild(phone);
-  li.appendChild(hoursNormalTitle);
-  li.appendChild(hoursNormal);
-  li.appendChild(hoursSatTitle);
-  li.appendChild(hoursSat);
-  li.appendChild(hoursSunTitle);
-  li.appendChild(hoursSun);
+  content.appendChild(clinicID);
+  button.appendChild(clinicName);
+  button.appendChild(addressTitle);
+  button.appendChild(address);
+  button.appendChild(city);
+  button.appendChild(state);
+  button.appendChild(zip);
+  content.appendChild(phoneTitle);
+  content.appendChild(phone);
+  content.appendChild(hoursNormalTitle);
+  content.appendChild(hoursNormal);
+  content.appendChild(hoursSatTitle);
+  content.appendChild(hoursSat);
+  content.appendChild(hoursSunTitle);
+  content.appendChild(hoursSun);
   // website title and value
-  li.appendChild(websiteTitle);
-  li.appendChild(website);
-  // li.appendChild(location);
+  content.appendChild(websiteTitle);
+  content.appendChild(website);
+  // content.appendChild(location);
 
   services.textContent = "Services: "
 
-  li.appendChild(services);
+  content.appendChild(services);
 
 if (bloodPressureBool.textContent == "true") {
   bloodPressureBool.textContent = "Blood Pressure";
-  li.appendChild(bloodPressureBool);
+  content.appendChild(bloodPressureBool);
 }
 
 if (bloodSugarBool.textContent == "true") {
   bloodPressureBool.textContent = "Blood Sugar";
-  li.appendChild(bloodSugarBool);
+  content.appendChild(bloodSugarBool);
 }
 
 if (cholesterolBool.textContent == "true") {
   cholesterolBool.textContent = "Cholesterol";
-  li.appendChild(cholesterolBool);
+  content.appendChild(cholesterolBool);
 }
 
 if (fluShotBool.textContent == "true") {
   fluShotBool.textContent = "Flu Shot";
-  li.appendChild(fluShotBool);
+  content.appendChild(fluShotBool);
 }
 
 if (pneumoniaBool.textContent == "true") {
   pneumoniaBool.textContent = "Pneumonia";
-  li.appendChild(pneumoniaBool);
+  content.appendChild(pneumoniaBool);
 }
 
 if (shinglesBool.textContent == "true") {
   shinglesBool.textContent = "Shingles";
-  li.appendChild(shinglesBool);
+  content.appendChild(shinglesBool);
 }
 
-  // li.appendChild(bloodSugarBool);
-  // li.appendChild(cholesterolBool);
-  // li.appendChild(fluShotBool);
-  // li.appendChild(pneumoniaBool);
-  // li.appendChild(shinglesBool);
+
+  clinicListButtons.appendChild(button);
+
+  // clinicList.appendChild(li);
+
+// this appends one element to another perfectly.
+  // button.appendChild(content);
+
+  clinicListButtons.appendChild(content);
 
 
-  clinicList.appendChild(li);
+  // contentDiv.appendChild(li);
 }
 
 // getting data
@@ -171,3 +185,19 @@ db.collection('Locations').get().then(snapshot => {
         renderClinic(doc);
     });
 });
+
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
