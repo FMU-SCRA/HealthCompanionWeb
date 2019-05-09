@@ -360,55 +360,80 @@ h1 {
   font-size: calc(1rem + 3vw);
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   #blood-pressure-title {
     /* display: block; */
-    right: 20%;
+    left: 26%;
+    top: 4%;
   }
 
   #services-title {
     /* display: block; */
-    right: 20%;
+    /* right: 20%; */
+    left: 55%;
+    top: 3%;
+  }
+
+  .mySlidesServices {
+    top: 10%;
+    position: absolute;
+    left: 23%;
+  }
+
+  #services-list {
+    font-size: 18px;
+    top: 63%;
+    position: absolute;
+    right: 10%;
+    left: 0%;
+    text-align: left;
   }
 
   #journal-title {
     /* display: block; */
-    right: 20%;
+    left: 60%;
+    top: 3%;
   }
 
   #blood-sugar-title {
-    right: 20%;
+    left: 38%;
+    top: 3%;
   }
 
   #cholesterol-title {
     /* display: block; */
-    right: 20%;
+    left: 40%;
+    top: 3%;
   }
 
   #vaccinations-title {
     /* display: block; */
-    right: 20%;
+    left: 35%;
+    top: 3%;
   }
 
   #body-weight-title {
     /* display: block; */
-    right: 20%;
+    left: 35%;
+    top: 3%;
   }
 
   #allergies-title {
     /* display: block; */
-    right: 20%;
+    left: 55%;
+    top: 3%;
   }
 
   #medications-title {
     /* display: block; */
-    right: 20%;
+    left: 37%;
+    top: 3%;
   }
-  img {
+  /* img {
     visibility: hidden;
-  }
+  } */
   li {
-    font-size: 15px;
+    margin-bottom: 10px;
   }
 
 
