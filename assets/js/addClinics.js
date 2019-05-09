@@ -22,9 +22,9 @@ $(document).ready(function(){
   //   $('#sidebar-wrapper').slideReveal("toggle");
   // });
 
-  document.getElementById("toggleSidebar").document.addEventListener('click', function() {
-    $('#sidebar-wrapper').slideReveal("toggle");
-  });
+  // document.getElementById("toggleSidebar").document.addEventListener('click', function() {
+  //   $('#sidebar-wrapper').slideReveal("toggle");
+  // });
 
     // For the services text area
     $('#characterLeft').text('140 characters left');
