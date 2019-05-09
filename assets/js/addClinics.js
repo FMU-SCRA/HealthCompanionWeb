@@ -206,6 +206,7 @@ function createModal(ID, title, forceStay, modalBody, cancel, submitBtn) {
 
 
   function openRemoveModal() {
+
     var removeClinicModalBtn = '<button type="button" id="removeClinicButtonFinal" class="btn btn-danger" data-dismiss="modal">Remove</button>';
     var removeClinicBody = '<div class="form-group"><input id="clinicInput" type="text" class="form-control" name="clientIDBox" placeholder="Clinic ID" value=""></div>';
     createModal('removeModal', 'Remove Clinic', false,
@@ -214,6 +215,7 @@ function createModal(ID, title, forceStay, modalBody, cancel, submitBtn) {
     $('#removeModal').modal({
       keyboard: false
     });
+    document.getElementById('clinicInput').value = "";
     // this function deletes the individual clinic by hash
       function deleteClinic() {
         var clinicID = getInputVal('clinicInput');
@@ -223,11 +225,12 @@ function createModal(ID, title, forceStay, modalBody, cancel, submitBtn) {
         }).catch(function(error) {
             console.error("Error removing document: ", error);
         });
-        document.getElementById('clinicInput').value = "";
+
       }
 
     var removeBtnModal = document.getElementById('removeClinicButtonFinal');
     removeBtnModal.addEventListener('click', deleteClinic);
+
 
   }
     // this opens the Remove Clinic Modal
