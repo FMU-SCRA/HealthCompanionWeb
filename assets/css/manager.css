@@ -1,5 +1,5 @@
 body{
-    background: #eab0dc;
+    background: white!important;;
     font-family: "IBM Plex Sans";
 }
 
@@ -13,8 +13,9 @@ h1{
 
 .content{
     background: #fff;
-    max-width: 960px;
+    max-width: 968px;
     margin: 30px auto;
+    overflow-y: scroll;
     padding:  20px 30px;
     border-radius: 10px 120px 10px 10px;
     box-shadow: 1px 3px 5px rgba(0,0,0,0.1)
@@ -42,7 +43,8 @@ li:nth-child(even){
 }
 
 li span{
-    display: inline-block;
+    display: inline-table;
+    overflow-y: scroll;
 }
 
 li span:nth-child(2){

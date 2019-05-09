@@ -20,6 +20,7 @@ const clinicList = document.querySelector('#clinic-list');
 function renderClinic(doc) {
   let li = document.createElement('li');
 
+  let clinicID = document.createElement('span');
 
   let clinicName = document.createElement('span');
 
@@ -61,6 +62,7 @@ function renderClinic(doc) {
 
   li.setAttribute('data-id', doc.id);
 
+  clinicID.textContent = doc.id;
 
   clinicName.textContent = doc.data().clinicName;
 
@@ -99,7 +101,7 @@ function renderClinic(doc) {
   pneumoniaBool.textContent = doc.data().servicePneumonia;
   shinglesBool.textContent = doc.data().serviceShingles;
 
-
+  li.appendChild(clinicID);
   li.appendChild(clinicName);
   li.appendChild(addressTitle);
   li.appendChild(address);
