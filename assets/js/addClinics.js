@@ -9,7 +9,7 @@ $(document).ready(function(){
   var removeClinicBody = '<div class="form-group"><input id="clinicInput" type="text" class="form-control" name="clientIDBox" placeholder="ID" value=""></div>';
 
 
-
+  // the sidebar getting creating with settings
   $("#sidebar-wrapper").slideReveal({
     trigger: $("#toggle"),
     push: false,
@@ -18,7 +18,11 @@ $(document).ready(function(){
   });
 
   // this allows the second button to close the menu
-  $("#toggleSidebar").mousedown(function() {
+  // $("#toggleSidebar").mousedown(function() {
+  //   $('#sidebar-wrapper').slideReveal("toggle");
+  // });
+
+  document.getElementById("toggleSidebar").document.addEventListener('click', function() {
     $('#sidebar-wrapper').slideReveal("toggle");
   });
 
@@ -41,13 +45,14 @@ $(document).ready(function(){
     });
 
 
-});
+}); // end of .ready
 
+  // connection to the Firebase Database
   firebase.initializeApp({
   apiKey: "AIzaSyCSz2T3eruA7DdHh9NjXsiBW4Bma0q1Khk",
   authDomain: "health-companion-e4173.firebaseapp.com",
   projectId: "health-companion-e4173"
-});
+  });
 
   // this will initialize firebase with out site.
   // firebase.initializeApp(config);
