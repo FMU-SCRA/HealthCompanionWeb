@@ -251,7 +251,8 @@ function createModal(ID, title, forceStay, modalBody, cancel, submitBtn) {
 
   }
     // this opens the Remove Clinic Modal
-    document.getElementById("removeClinic").addEventListener('click', openRemoveModal);
+    document.getElementById("removeClinicMain").addEventListener('click', openRemoveModal);
+    document.getElementById("removeClinicSidebar").addEventListener('click', openRemoveModal);
 
 
     function successAlert(message) {

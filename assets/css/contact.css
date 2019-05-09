@@ -30,14 +30,25 @@ body {
   color: #52c4ca!important;
 }
 
-#removeClinic {
+#removeClinicMain {
   background: none;
   color: white;
   border-style: none;
   outline: none;
 }
 
-#removeClinic:hover {
+#removeClinicSidebar {
+  background: none;
+  color: white;
+  border-style: none;
+  outline: none;
+}
+
+#removeClinicMain:hover {
+  cursor: pointer;
+}
+
+#removeClinicSidebar:hover {
   cursor: pointer;
 }
 
