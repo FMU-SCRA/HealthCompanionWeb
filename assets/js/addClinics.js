@@ -8,24 +8,6 @@ $(document).ready(function(){
   var confirmModalBtn = '<button type="button" id="confirmButtonFinal" class="btn btn-danger" data-dismiss="modal">I Have My ID</button>';
   var removeClinicBody = '<div class="form-group"><input id="clinicInput" type="text" class="form-control" name="clientIDBox" placeholder="ID" value=""></div>';
 
-
-  // the sidebar getting creating with settings
-  $("#sidebar-wrapper").slideReveal({
-    trigger: $("#toggle"),
-    push: false,
-    speed: 200,
-    overlay: true
-  });
-
-  // this allows the second button to close the menu
-  // $("#toggleSidebar").mousedown(function() {
-  //   $('#sidebar-wrapper').slideReveal("toggle");
-  // });
-
-  // document.getElementById("toggleSidebar").document.addEventListener('click', function() {
-  //   $('#sidebar-wrapper').slideReveal("toggle");
-  // });
-
     // For the services text area
     $('#characterLeft').text('140 characters left');
     $('#services').keydown(function () {
