@@ -51,162 +51,209 @@ li{
     overflow-y: scroll;
 } */
 
-/* li span:nth-child(2){
-    font-size: 12px;
+/*This is for the button values*/
+button span:nth-child(1){
     margin-top: 6px;
-    color: #1c676a!important;
-    margin-right: 3px;
-    margin-left: 5px;
+    color: white;
+    margin-right: 15px;
+    margin-left: 20px;
+    font-weight: bold;
 }
 
-li span:nth-child(3){
-    font-size: 12px;
+button span:nth-child(2){
     margin-top: 6px;
-    color: #999;
+    color: white;
+    margin-right: 3px;
+    margin-left: 50px;
+    font-weight: bold;
+}
+
+button span:nth-child(3){
+    margin-top: 6px;
+    color: white;
     margin-right: 2px;
     margin-left: 3px;
 }
 
-li span:nth-child(4){
-    font-size: 12px;
+button span:nth-child(4){
     margin-top: 6px;
-    color: #999;
+    color: white;
     margin-right: 3px;
     margin-left: 3px;
 }
 
-li span:nth-child(5){
-    font-size: 12px;
+button span:nth-child(5){
     margin-top: 6px;
-    color: #999;
+    color: white;
     margin-right: 3px;
     margin-left: 3px;
 }
 
-li span:nth-child(6){
+/*This is for the content values*/
+
+.content span:nth-child(1) {
     font-size: 12px;
     margin-top: 6px;
-    color: #999;
+    color: white;
     margin-right: 3px;
-    margin-left: 3px;
+    margin-left: 20px;
 }
 
-li span:nth-child(7){
+
+.content span:nth-child(2) {
     font-size: 12px;
     margin-top: 6px;
-    color: #1c676a!important;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.content span:nth-child(3) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
     margin-right: 5px;
     margin-left: 5px;
 }
 
-li span:nth-child(8){
+.content span:nth-child(4) {
     font-size: 12px;
     margin-top: 6px;
-    color: #999;
+    color: white;
     margin-right: 5px;
     margin-left: 5px;
+    font-weight: bold;
 }
 
-li span:nth-child(9){
+.content span:nth-child(5) {
     font-size: 12px;
     margin-top: 6px;
-    color: #1c676a!important;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-li span:nth-child(10){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #999;
-    margin-right: 3px;
-    margin-left: 2px;
-}
-
-li span:nth-child(11){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #1c676a!important;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-li span:nth-child(12){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #999;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-li span:nth-child(13){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #1c676a!important;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-li span:nth-child(14){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #999;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-li span:nth-child(15){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #1c676a!important;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-li span:nth-child(16){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #999;
+    color: white;
     margin-right: 3px;
     margin-left: 2px;
 }
 
-li span:nth-child(17){
+.content span:nth-child(6) {
     font-size: 12px;
     margin-top: 6px;
-    color: #1c676a!important;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.content span:nth-child(7) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.content span:nth-child(8) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.content span:nth-child(9) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.content span:nth-child(10) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.content span:nth-child(11) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
     margin-right: 3px;
     margin-left: 2px;
 }
 
-li span:nth-child(18){
+.content span:nth-child(12) {
     font-size: 12px;
     margin-top: 6px;
-    color: #999;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+    font-weight: bold;
+}
+
+.content span:nth-child(13) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
     margin-right: 3px;
     margin-left: 2px;
 }
-li span:nth-child(19){
+.content span:nth-child(14) {
     font-size: 12px;
     margin-top: 6px;
-    color: #999;
+    color: white;
     margin-right: 3px;
     margin-left: 2px;
 }
-li span:nth-child(20){
+.content span:nth-child(15) {
     font-size: 12px;
     margin-top: 6px;
-    color: #999;
+    color: white;
     margin-right: 3px;
     margin-left: 2px;
 }
-li span:nth-child(21){
+.content span:nth-child(16){
     font-size: 12px;
     margin-top: 6px;
-    color: #999;
+    color: white;
     margin-right: 3px;
     margin-left: 2px;
-} */
+}
+
+.content span:nth-child(17){
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+}
+
+.content span:nth-child(18){
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+}
+
+.content span:nth-child(19){
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+}
+
+.content span:nth-child(20){
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+}
 
 /* li div{
     position: absolute;
@@ -272,7 +319,9 @@ form:after{
 }
 
 .active, .collapsible:hover {
-  background-color: #52c4ca!important;
+  /* background-color: #52c4ca!important; */
+  border: 5px 5px 5px 5px;
+  border-color: white;
 }
 
 .collapsible:after {

@@ -112,6 +112,12 @@ function renderClinic(doc) {
   pneumoniaBool.textContent = doc.data().servicePneumonia;
   shinglesBool.textContent = doc.data().serviceShingles;
 
+  console.log("BP:"+ bloodPressureBool.textContent);
+  console.log("BS:"+ bloodSugarBool.textContent);
+  console.log("C:"+ cholesterolBool.textContent);
+  console.log("FS:"+ fluShotBool.textContent);
+  console.log("P:"+ pneumoniaBool.textContent);
+  console.log("S:"+ shinglesBool.textContent);
 
   button.appendChild(clinicName);
   button.appendChild(addressTitle);
@@ -137,34 +143,41 @@ function renderClinic(doc) {
 
   content.appendChild(services);
 
-if (bloodPressureBool.textContent == "true") {
+if (bloodPressureBool.textContent == 'true') {
   bloodPressureBool.textContent = "Blood Pressure";
   content.appendChild(bloodPressureBool);
+  console.log("BP:"+ bloodPressureBool.textContent);
 }
 
 if (bloodSugarBool.textContent == "true") {
-  bloodPressureBool.textContent = "Blood Sugar";
+  bloodSugarBool.textContent = "Blood Sugar";
   content.appendChild(bloodSugarBool);
+  console.log("BS:"+ bloodSugarBool.textContent);
 }
 
 if (cholesterolBool.textContent == "true") {
   cholesterolBool.textContent = "Cholesterol";
   content.appendChild(cholesterolBool);
+  console.log("C:"+cholesterolBool.textContent);
 }
 
 if (fluShotBool.textContent == "true") {
   fluShotBool.textContent = "Flu Shot";
   content.appendChild(fluShotBool);
+  console.log("FS:"+fluShotBool.textContent);
+
 }
 
 if (pneumoniaBool.textContent == "true") {
   pneumoniaBool.textContent = "Pneumonia";
   content.appendChild(pneumoniaBool);
+  console.log("P:"+pneumoniaBool.textContent);
 }
 
 if (shinglesBool.textContent == "true") {
   shinglesBool.textContent = "Shingles";
   content.appendChild(shinglesBool);
+  console.log("S:"+shinglesBool.textContent);
 }
 
 
