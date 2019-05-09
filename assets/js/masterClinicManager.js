@@ -24,6 +24,7 @@ function renderClinic(doc) {
 
   let content = document.createElement('div');
 
+
   content.setAttribute('class', "content")
 
   let li = document.createElement('li');
@@ -111,13 +112,14 @@ function renderClinic(doc) {
   pneumoniaBool.textContent = doc.data().servicePneumonia;
   shinglesBool.textContent = doc.data().serviceShingles;
 
-  content.appendChild(clinicID);
+
   button.appendChild(clinicName);
   button.appendChild(addressTitle);
   button.appendChild(address);
   button.appendChild(city);
   button.appendChild(state);
   button.appendChild(zip);
+  content.appendChild(clinicID);
   content.appendChild(phoneTitle);
   content.appendChild(phone);
   content.appendChild(hoursNormalTitle);
@@ -176,24 +178,12 @@ if (shinglesBool.textContent == "true") {
   clinicListButtons.appendChild(content);
 
 
-  // contentDiv.appendChild(li);
-}
-
-// getting data
-db.collection('Locations').get().then(snapshot => {
-    snapshot.docs.forEach(doc => {
-        renderClinic(doc);
-    });
-});
-
-
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
+  // adds the func() to each button on render function call.
+  button.addEventListener("click", function() {
     this.classList.toggle("active");
+    this.nextElementSibling.classList.toggle("show")
     var content = this.nextElementSibling;
+
     if (content.style.maxHeight){
       content.style.maxHeight = null;
     } else {
@@ -201,3 +191,11 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+// getting data
+db.collection('Locations').get().then(snapshot => {
+    snapshot.docs.forEach(doc => {
+        renderClinic(doc);
+
+    });
+});
