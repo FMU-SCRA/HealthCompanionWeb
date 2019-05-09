@@ -222,6 +222,7 @@ function createModal(ID, title, forceStay, modalBody, cancel, submitBtn) {
 
         db.collection("Locations").doc(clinicID).delete().then(function() {
             console.log("Document successfully deleted!");
+            errorAlert(clinicID);
         }).catch(function(error) {
             console.error("Error removing document: ", error);
         });
@@ -236,12 +237,16 @@ function createModal(ID, title, forceStay, modalBody, cancel, submitBtn) {
     // this opens the Remove Clinic Modal
     document.getElementById("removeClinic").addEventListener('click', openRemoveModal);
 
-    // function getClinicID() {
-    //   clinicID = $('#clinicInput');
-    //   return clinicID.val();
-    // }
 
-
-
-
-      // document.getElementById("removeClinicButtonFinal").addEventListener('click', deleteClinic(getClinicID));
+    function errorAlert(message) {
+        var alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 50px;">' +
+          '<strong>Deleted: </strong> ' + message +
+          '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+          '<span aria-hidden="true">&times;</span> </button></div>',
+          already = $('.alert');
+        if (already.length > 0) {
+          already.remove();
+        }
+          document.body.insertAdjacentHTML('afterbegin', alert);
+        $('alert').alert();
+      }
