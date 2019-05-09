@@ -215,19 +215,35 @@ function createModal(ID, title, forceStay, modalBody, cancel, submitBtn) {
     $('#removeModal').modal({
       keyboard: false
     });
+
     document.getElementById('clinicInput').value = "";
+
     // this function deletes the individual clinic by hash
       function deleteClinic() {
-        var clinicID = getInputVal('clinicInput');
 
-        db.collection("Locations").doc(clinicID).delete().then(function() {
-            console.log("Document successfully deleted!");
-            errorAlert(clinicID);
+        var clinicID = getInputVal('clinicInput');
+        var docRef = db.collection("Locations").doc(clinicID);
+
+        docRef.get().then(function(doc) {
+          if (doc.exists) {
+            db.collection("Locations").doc(clinicID).delete().then(function() {
+                console.log("Document successfully deleted!");
+                successAlert(clinicID);
+            }).catch(function(error) {
+                console.error("Error removing document: ", error);
+            });
+          } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+            errorAlert("No Such Document");
+          }
+
         }).catch(function(error) {
-            console.error("Error removing document: ", error);
+          console.log("Error getting document:", error);
+          errorAlert("Please Enter A Clinic ID.")
         });
 
-      }
+      } // end of deleteClinic method
 
     var removeBtnModal = document.getElementById('removeClinicButtonFinal');
     removeBtnModal.addEventListener('click', deleteClinic);
@@ -238,9 +254,9 @@ function createModal(ID, title, forceStay, modalBody, cancel, submitBtn) {
     document.getElementById("removeClinic").addEventListener('click', openRemoveModal);
 
 
-    function errorAlert(message) {
+    function successAlert(message) {
         var alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 50px;">' +
-          '<strong>Deleted: </strong> ' + message +
+          '<strong>Deleted Clinic ID: </strong> ' + message +
           '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
           '<span aria-hidden="true">&times;</span> </button></div>',
           already = $('.alert');
@@ -250,3 +266,16 @@ function createModal(ID, title, forceStay, modalBody, cancel, submitBtn) {
           document.body.insertAdjacentHTML('afterbegin', alert);
         $('alert').alert();
       }
+
+      function errorAlert(message) {
+          var alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 50px;">' +
+            '<strong>No Matching Key</strong> ' + message +
+            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+            '<span aria-hidden="true">&times;</span> </button></div>',
+            already = $('.alert');
+          if (already.length > 0) {
+            already.remove();
+          }
+            document.body.insertAdjacentHTML('afterbegin', alert);
+          $('alert').alert();
+        }
