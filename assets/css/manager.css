@@ -1,5 +1,5 @@
 body{
-    background: white!important;;
+    background: #1c676a!important;
     font-family: "IBM Plex Sans";
 }
 
@@ -295,4 +295,14 @@ form:after{
   transition: max-height 0.2s ease-out;
   background-color: #52c4ca!important;
   color: white;
+}
+
+@media screen and (max-width: 1200px) {
+  #clinic-button{
+      margin-top: 50px;
+  }
+
+  #mobileTrigger {
+    background: #1c676a!important;
+  }
 }
