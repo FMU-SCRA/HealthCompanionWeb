@@ -19,6 +19,8 @@ const clinicListButtons = document.querySelector('#clinic-button');
 // const clinicList = document.querySelector('#clinic-list');
 // const contentDiv = document.querySelector('#content');
 
+var removeClinicBody = '<div class="form-group"><input id="clinicInput" type="text" class="form-control" name="clientIDBox" placeholder="ID" value=""></div>';
+
 function renderClinic(doc) {
   let button = document.createElement('button');
 
@@ -112,12 +114,12 @@ function renderClinic(doc) {
   pneumoniaBool.textContent = doc.data().servicePneumonia;
   shinglesBool.textContent = doc.data().serviceShingles;
 
-  console.log("BP:"+ bloodPressureBool.textContent);
-  console.log("BS:"+ bloodSugarBool.textContent);
-  console.log("C:"+ cholesterolBool.textContent);
-  console.log("FS:"+ fluShotBool.textContent);
-  console.log("P:"+ pneumoniaBool.textContent);
-  console.log("S:"+ shinglesBool.textContent);
+  // console.log("BP:"+ bloodPressureBool.textContent);
+  // console.log("BS:"+ bloodSugarBool.textContent);
+  // console.log("C:"+ cholesterolBool.textContent);
+  // console.log("FS:"+ fluShotBool.textContent);
+  // console.log("P:"+ pneumoniaBool.textContent);
+  // console.log("S:"+ shinglesBool.textContent);
 
   button.appendChild(clinicName);
   button.appendChild(addressTitle);
@@ -146,38 +148,38 @@ function renderClinic(doc) {
 if (bloodPressureBool.textContent == 'true') {
   bloodPressureBool.textContent = "Blood Pressure";
   content.appendChild(bloodPressureBool);
-  console.log("BP:"+ bloodPressureBool.textContent);
+  // console.log("BP:"+ bloodPressureBool.textContent);
 }
 
 if (bloodSugarBool.textContent == "true") {
   bloodSugarBool.textContent = "Blood Sugar";
   content.appendChild(bloodSugarBool);
-  console.log("BS:"+ bloodSugarBool.textContent);
+  // console.log("BS:"+ bloodSugarBool.textContent);
 }
 
 if (cholesterolBool.textContent == "true") {
   cholesterolBool.textContent = "Cholesterol";
   content.appendChild(cholesterolBool);
-  console.log("C:"+cholesterolBool.textContent);
+  // console.log("C:"+cholesterolBool.textContent);
 }
 
 if (fluShotBool.textContent == "true") {
   fluShotBool.textContent = "Flu Shot";
   content.appendChild(fluShotBool);
-  console.log("FS:"+fluShotBool.textContent);
+  // console.log("FS:"+fluShotBool.textContent);
 
 }
 
 if (pneumoniaBool.textContent == "true") {
   pneumoniaBool.textContent = "Pneumonia";
   content.appendChild(pneumoniaBool);
-  console.log("P:"+pneumoniaBool.textContent);
+  // console.log("P:"+pneumoniaBool.textContent);
 }
 
 if (shinglesBool.textContent == "true") {
   shinglesBool.textContent = "Shingles";
   content.appendChild(shinglesBool);
-  console.log("S:"+shinglesBool.textContent);
+  // console.log("S:"+shinglesBool.textContent);
 }
 
 
@@ -212,3 +214,111 @@ db.collection('Locations').get().then(snapshot => {
 
     });
 });
+
+function getInputVal(id) {
+  return document.getElementById(id).value;
+}
+
+function createModal(ID, title, forceStay, modalBody, cancel, submitBtn) {
+    // create the modal html in string representation
+    var modal = '<div class="modal fade" id="' + ID + '" tabindex="-1" role="dialog" aria-labelledby="Clinic ID" aria-hidden="false" data-keyboard="false">';
+    if (forceStay) {
+      modal = '<div class="modal fade" id="' + ID + '" tabindex="-1" role="dialog" aria-labelledby="Clinic ID" aria-hidden="false" data-backdrop="static" data-keyboard="false" >';
+    }
+    modal += '<div class="modal-dialog modal-dialog-centered" role="document">';
+    modal += '<div class="modal-content">';
+    modal += '<div class="modal-header">';
+    modal += '<h5 class="modal-title">' + title + '</h5>';
+    modal += '</div>';
+    modal += '<div class="modal-body">';
+    modal += modalBody;
+    modal += '</div>';
+    modal += '<div class="modal-footer">';
+    // add the cancel button if it is wanted
+    if (cancel) {
+      modal += '<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>';
+    }
+    modal += submitBtn;
+    modal += '</div></div></div></div>';
+    // makes the modal appear by converting the strings above into HTML
+    document.body.insertAdjacentHTML('beforeend', modal);
+    // handles if there are any page size changes
+    $('#' + ID).modal('handleUpdate');
+  }
+
+
+  function openRemoveModal() {
+
+    var removeClinicModalBtn = '<button type="button" id="removeClinicButtonFinal" class="btn btn-danger" data-dismiss="modal">Remove</button>';
+    var removeClinicBody = '<div class="form-group"><input id="clinicInput" type="text" class="form-control" name="clientIDBox" placeholder="Clinic ID" value=""></div>';
+    createModal('removeModal', 'Remove Clinic', true,
+      "Please Enter Your Clinic ID:" + removeClinicBody, true, removeClinicModalBtn); // create reset modal for future use
+    // makes the modal open
+    $('#removeModal').modal({
+      keyboard: false,
+      backdrop: 'static'
+    });
+
+    document.getElementById('clinicInput').value = "";
+
+    // this function deletes the individual clinic by hash
+      function deleteClinic() {
+
+        var clinicID = getInputVal('clinicInput');
+        var docRef = db.collection("Locations").doc(clinicID);
+
+        docRef.get().then(function(doc) {
+          if (doc.exists) {
+            db.collection("Locations").doc(clinicID).delete().then(function() {
+                console.log("Document successfully deleted!");
+                successAlert(clinicID);
+            }).catch(function(error) {
+                console.error("Error removing document: ", error);
+            });
+          } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+            errorAlert("No Such Document");
+          }
+
+        }).catch(function(error) {
+          console.log("Error getting document:", error);
+          errorAlert("Please Enter A Clinic ID.")
+        });
+
+      } // end of deleteClinic method
+
+    var removeBtnModal = document.getElementById('removeClinicButtonFinal');
+    removeBtnModal.addEventListener('click', deleteClinic);
+
+
+  }
+    // this opens the Remove Clinic Modal
+    document.getElementById("removeClinicMain").addEventListener('click', openRemoveModal);
+    document.getElementById("removeClinicSidebar").addEventListener('click', openRemoveModal);
+
+    function successAlert(message) {
+        var alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 50px;">' +
+          '<strong>Deleted Clinic ID: </strong> ' + message +
+          '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+          '<span aria-hidden="true">&times;</span> </button></div>',
+          already = $('.alert');
+        if (already.length > 0) {
+          already.remove();
+        }
+          document.body.insertAdjacentHTML('afterbegin', alert);
+        $('alert').alert();
+      }
+
+      function errorAlert(message) {
+          var alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 50px;">' +
+            '<strong>No Matching Key</strong> ' + message +
+            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+            '<span aria-hidden="true">&times;</span> </button></div>',
+            already = $('.alert');
+          if (already.length > 0) {
+            already.remove();
+          }
+            document.body.insertAdjacentHTML('afterbegin', alert);
+          $('alert').alert();
+        }

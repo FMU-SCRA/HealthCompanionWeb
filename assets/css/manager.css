@@ -28,29 +28,6 @@ ul{
     /* display: inline-block; */
 }
 
-li{
-    padding: 20px;
-    background: #f6f6f6;
-    font-size: 10px;
-    color: #555;
-    /* overflow-x: auto; */
-    position: relative;
-    border-bottom: 1px solid #e6e6e6;
-    height: 46px;
-    /* display: block; */
-}
-
-/* li:nth-child(even){
-    padding: 20px;
-    background: #f2f2f8;
-
-} */
-
-/* li span{
-    display: inline-table;
-    overflow-y: scroll;
-} */
-
 /*This is for the button values*/
 button span:nth-child(1){
     margin-top: 6px;
@@ -96,7 +73,7 @@ button span:nth-child(5){
     margin-top: 6px;
     color: white;
     margin-right: 3px;
-    margin-left: 20px;
+    margin-left: 38px;
 }
 
 
@@ -255,56 +232,6 @@ button span:nth-child(5){
     margin-left: 2px;
 }
 
-/* li div{
-    position: absolute;
-    top: 0;
-    right: 0px;
-    background: rgba(255,255,255,0.9);
-    width: 40px;
-    text-align: center;
-    padding: 10px 0;
-    font-weight:  bold;
-    cursor:  pointer;
-    margin-bottom: 10px;
-} */
-
-/* form input{
-    float: left;
-    width: 38%;
-    margin: 0;
-    border: 0;
-    border-bottom: 1px solid #eee;
-    margin: 0 1%;
-    padding: 10px;
-    display: block;
-    box-sizing: border-box;
-    font-size: 18px;
-}
-
-form input:focus{
-    outline: none;
-    border-bottom: 3px solid #88236f;
-    padding-bottom: 8px;
-    transition: all ease 0.2s;
-}
-
-form:after{
-    content: '';
-    clear: both;
-    display: block;
-} */
-
-/* button{
-    border: 0;
-    background: #1c676a!important;
-    border-radius: 10px;
-    padding: 13px;
-    width: 14%;
-    box-shadow: -1px 0px 1px rgba(0,0,0,0.1);
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #999;
-} */
 
 .collapsible {
   background-color: #1c676a!important;
@@ -338,12 +265,38 @@ form:after{
 
 .content {
   width: 100%;
-  padding: 0 18px;
+  /* padding: 0 18px; */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   background-color: #52c4ca!important;
   color: white;
+}
+
+.modal-content {
+  color: #1c676a!important;
+}
+
+#removeClinicMain {
+  background: none;
+  color: white;
+  border-style: none;
+  outline: none;
+}
+
+#removeClinicSidebar {
+  background: none;
+  color: white;
+  border-style: none;
+  outline: none;
+}
+
+#removeClinicMain:hover {
+  cursor: pointer;
+}
+
+#removeClinicSidebar:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1200px) {
