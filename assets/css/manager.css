@@ -1,257 +1,310 @@
 body{
-    background: white!important;;
+    background: #1c676a!important;
     font-family: "IBM Plex Sans";
 }
 
 h1{
     color: #fff;
     font-size: 25px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     margin-top: 80px;
     text-align: center;
 }
 
-.content{
+.container-fluid{
     background: #fff;
-    max-width: 968px;
-    margin: 30px auto;
-    overflow-y: scroll;
-    padding:  20px 30px;
-    border-radius: 10px 120px 10px 10px;
+    max-width: 2000px;
+    /* margin: 30px auto; */
+    /* overflow-x: auto; */
+    word-wrap: normal;
+    /* padding:  20px 30px; */
+    /* border-radius: 10px 120px 10px 10px; */
     box-shadow: 1px 3px 5px rgba(0,0,0,0.1)
 }
 
 ul{
     list-style-type: none;
     padding: 0;
+    /* display: inline-block; */
 }
 
-li{
-    padding: 20px;
-    background: #f6f6f6;
-    font-size: 10px;
-    color: #555;
-    position: relative;
-    border-bottom: 1px solid #e6e6e6;
-    height: 46px;
-}
-
-li:nth-child(even){
-    padding: 20px;
-    background: #f2f2f8;
-
-}
-
-li span{
-    display: inline-table;
-    overflow-y: scroll;
-}
-
-li span:nth-child(2){
-    font-size: 12px;
+/*This is for the button values*/
+button span:nth-child(1){
     margin-top: 6px;
-    color: #1c676a!important;
+    color: white;
+    margin-right: 15px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+button span:nth-child(2){
+    margin-top: 6px;
+    color: white;
     margin-right: 3px;
-    margin-left: 5px;
+    margin-left: 50px;
+    font-weight: bold;
 }
 
-li span:nth-child(3){
-    font-size: 12px;
+button span:nth-child(3){
     margin-top: 6px;
-    color: #999;
+    color: white;
     margin-right: 2px;
     margin-left: 3px;
 }
 
-li span:nth-child(4){
-    font-size: 12px;
+button span:nth-child(4){
     margin-top: 6px;
-    color: #999;
+    color: white;
     margin-right: 3px;
     margin-left: 3px;
 }
 
-li span:nth-child(5){
-    font-size: 12px;
+button span:nth-child(5){
     margin-top: 6px;
-    color: #999;
+    color: white;
     margin-right: 3px;
     margin-left: 3px;
 }
 
-li span:nth-child(6){
+/*This is for the content values*/
+
+.content span:nth-child(1) {
     font-size: 12px;
     margin-top: 6px;
-    color: #999;
+    color: white;
     margin-right: 3px;
-    margin-left: 3px;
+    margin-left: 38px;
 }
 
-li span:nth-child(7){
+
+.content span:nth-child(2) {
     font-size: 12px;
     margin-top: 6px;
-    color: #1c676a!important;
+    color: white;
     margin-right: 5px;
     margin-left: 5px;
-}
-
-li span:nth-child(8){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #999;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-li span:nth-child(9){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #1c676a!important;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-li span:nth-child(10){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #999;
-    margin-right: 3px;
-    margin-left: 2px;
-}
-
-li span:nth-child(11){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #1c676a!important;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-li span:nth-child(12){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #999;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-li span:nth-child(13){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #1c676a!important;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-li span:nth-child(14){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #999;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-li span:nth-child(15){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #1c676a!important;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-li span:nth-child(16){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #999;
-    margin-right: 3px;
-    margin-left: 2px;
-}
-
-li span:nth-child(17){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #1c676a!important;
-    margin-right: 3px;
-    margin-left: 2px;
-}
-
-li span:nth-child(18){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #999;
-    margin-right: 3px;
-    margin-left: 2px;
-}
-li span:nth-child(19){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #999;
-    margin-right: 3px;
-    margin-left: 2px;
-}
-li span:nth-child(20){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #999;
-    margin-right: 3px;
-    margin-left: 2px;
-}
-li span:nth-child(21){
-    font-size: 12px;
-    margin-top: 6px;
-    color: #999;
-    margin-right: 3px;
-    margin-left: 2px;
-}
-
-li div{
-    position: absolute;
-    top: 0;
-    right: 0px;
-    background: rgba(255,255,255,0.9);
-    width: 40px;
-    text-align: center;
-    padding: 10px 0;
-    font-weight:  bold;
-    cursor:  pointer;
-    margin-bottom: 10px;
-}
-
-form input{
-    float: left;
-    width: 38%;
-    margin: 0;
-    border: 0;
-    border-bottom: 1px solid #eee;
-    margin: 0 1%;
-    padding: 10px;
-    display: block;
-    box-sizing: border-box;
-    font-size: 18px;
-}
-
-form input:focus{
-    outline: none;
-    border-bottom: 3px solid #88236f;
-    padding-bottom: 8px;
-    transition: all ease 0.2s;
-}
-
-form:after{
-    content: '';
-    clear: both;
-    display: block;
-}
-
-button{
-    border: 0;
-    background: #fff;
-    border-radius: 10px;
-    padding: 13px;
-    width: 14%;
-    box-shadow: -1px 0px 1px rgba(0,0,0,0.1);
     font-weight: bold;
-    font-family: ubuntu;
-    letter-spacing: 1px;
-    color: #999;
+}
+
+.content span:nth-child(3) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.content span:nth-child(4) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.content span:nth-child(5) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+}
+
+.content span:nth-child(6) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.content span:nth-child(7) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.content span:nth-child(8) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.content span:nth-child(9) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.content span:nth-child(10) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.content span:nth-child(11) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+}
+
+.content span:nth-child(12) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+    font-weight: bold;
+}
+
+.content span:nth-child(13) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+}
+.content span:nth-child(14) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+}
+.content span:nth-child(15) {
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+}
+.content span:nth-child(16){
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+}
+
+.content span:nth-child(17){
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+}
+
+.content span:nth-child(18){
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+}
+
+.content span:nth-child(19){
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+}
+
+.content span:nth-child(20){
+    font-size: 12px;
+    margin-top: 6px;
+    color: white;
+    margin-right: 3px;
+    margin-left: 2px;
+}
+
+
+.collapsible {
+  background-color: #1c676a!important;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  /* background-color: #52c4ca!important; */
+  border: 5px 5px 5px 5px;
+  border-color: white;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  width: 100%;
+  /* padding: 0 18px; */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #52c4ca!important;
+  color: white;
+}
+
+.modal-content {
+  color: #1c676a!important;
+}
+
+#removeClinicMain {
+  background: none;
+  color: white;
+  border-style: none;
+  outline: none;
+}
+
+#removeClinicSidebar {
+  background: none;
+  color: white;
+  border-style: none;
+  outline: none;
+}
+
+#removeClinicMain:hover {
+  cursor: pointer;
+}
+
+#removeClinicSidebar:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  #clinic-button{
+      margin-top: 50px;
+  }
+
+  #mobileTrigger {
+    background: #1c676a!important;
+  }
 }

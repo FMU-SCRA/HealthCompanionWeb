@@ -15,9 +15,20 @@ projectId: "health-companion-e4173"
   var db = firebase.firestore();
 
 
-const clinicList = document.querySelector('#clinic-list');
+const clinicListButtons = document.querySelector('#clinic-button');
+// const clinicList = document.querySelector('#clinic-list');
+// const contentDiv = document.querySelector('#content');
+
+var removeClinicBody = '<div class="form-group"><input id="clinicInput" type="text" class="form-control" name="clientIDBox" placeholder="ID" value=""></div>';
 
 function renderClinic(doc) {
+  let button = document.createElement('button');
+
+  let content = document.createElement('div');
+
+
+  content.setAttribute('class', "content")
+
   let li = document.createElement('li');
 
   let clinicID = document.createElement('span');
@@ -32,11 +43,11 @@ function renderClinic(doc) {
 
   let state = document.createElement('span');
 
+  let zip = document.createElement('span');
+
   let phoneTitle = document.createElement('span');
 
   let phone = document.createElement('span');
-
-  let zip = document.createElement('span');
 
   let hoursNormalTitle = document.createElement('span');
   let hoursNormal = document.createElement('span');
@@ -61,6 +72,8 @@ function renderClinic(doc) {
   let shinglesBool = document.createElement('span');
 
   li.setAttribute('data-id', doc.id);
+
+  button.setAttribute('class', "collapsible")
 
   clinicID.textContent = doc.id;
 
@@ -101,73 +114,211 @@ function renderClinic(doc) {
   pneumoniaBool.textContent = doc.data().servicePneumonia;
   shinglesBool.textContent = doc.data().serviceShingles;
 
-  li.appendChild(clinicID);
-  li.appendChild(clinicName);
-  li.appendChild(addressTitle);
-  li.appendChild(address);
-  li.appendChild(city);
-  li.appendChild(state);
-  li.appendChild(zip);
-  li.appendChild(phoneTitle);
-  li.appendChild(phone);
-  li.appendChild(hoursNormalTitle);
-  li.appendChild(hoursNormal);
-  li.appendChild(hoursSatTitle);
-  li.appendChild(hoursSat);
-  li.appendChild(hoursSunTitle);
-  li.appendChild(hoursSun);
+  // console.log("BP:"+ bloodPressureBool.textContent);
+  // console.log("BS:"+ bloodSugarBool.textContent);
+  // console.log("C:"+ cholesterolBool.textContent);
+  // console.log("FS:"+ fluShotBool.textContent);
+  // console.log("P:"+ pneumoniaBool.textContent);
+  // console.log("S:"+ shinglesBool.textContent);
+
+  button.appendChild(clinicName);
+  button.appendChild(addressTitle);
+  button.appendChild(address);
+  button.appendChild(city);
+  button.appendChild(state);
+  button.appendChild(zip);
+  content.appendChild(clinicID);
+  content.appendChild(phoneTitle);
+  content.appendChild(phone);
+  content.appendChild(hoursNormalTitle);
+  content.appendChild(hoursNormal);
+  content.appendChild(hoursSatTitle);
+  content.appendChild(hoursSat);
+  content.appendChild(hoursSunTitle);
+  content.appendChild(hoursSun);
   // website title and value
-  li.appendChild(websiteTitle);
-  li.appendChild(website);
-  // li.appendChild(location);
+  content.appendChild(websiteTitle);
+  content.appendChild(website);
+  // content.appendChild(location);
 
   services.textContent = "Services: "
 
-  li.appendChild(services);
+  content.appendChild(services);
 
-if (bloodPressureBool.textContent == "true") {
+if (bloodPressureBool.textContent == 'true') {
   bloodPressureBool.textContent = "Blood Pressure";
-  li.appendChild(bloodPressureBool);
+  content.appendChild(bloodPressureBool);
+  // console.log("BP:"+ bloodPressureBool.textContent);
 }
 
 if (bloodSugarBool.textContent == "true") {
-  bloodPressureBool.textContent = "Blood Sugar";
-  li.appendChild(bloodSugarBool);
+  bloodSugarBool.textContent = "Blood Sugar";
+  content.appendChild(bloodSugarBool);
+  // console.log("BS:"+ bloodSugarBool.textContent);
 }
 
 if (cholesterolBool.textContent == "true") {
   cholesterolBool.textContent = "Cholesterol";
-  li.appendChild(cholesterolBool);
+  content.appendChild(cholesterolBool);
+  // console.log("C:"+cholesterolBool.textContent);
 }
 
 if (fluShotBool.textContent == "true") {
   fluShotBool.textContent = "Flu Shot";
-  li.appendChild(fluShotBool);
+  content.appendChild(fluShotBool);
+  // console.log("FS:"+fluShotBool.textContent);
+
 }
 
 if (pneumoniaBool.textContent == "true") {
   pneumoniaBool.textContent = "Pneumonia";
-  li.appendChild(pneumoniaBool);
+  content.appendChild(pneumoniaBool);
+  // console.log("P:"+pneumoniaBool.textContent);
 }
 
 if (shinglesBool.textContent == "true") {
   shinglesBool.textContent = "Shingles";
-  li.appendChild(shinglesBool);
+  content.appendChild(shinglesBool);
+  // console.log("S:"+shinglesBool.textContent);
 }
 
-  // li.appendChild(bloodSugarBool);
-  // li.appendChild(cholesterolBool);
-  // li.appendChild(fluShotBool);
-  // li.appendChild(pneumoniaBool);
-  // li.appendChild(shinglesBool);
+
+  clinicListButtons.appendChild(button);
+
+  // clinicList.appendChild(li);
+
+// this appends one element to another perfectly.
+  // button.appendChild(content);
+
+  clinicListButtons.appendChild(content);
 
 
-  clinicList.appendChild(li);
+  // adds the func() to each button on render function call.
+  button.addEventListener("click", function() {
+    this.classList.toggle("active");
+    this.nextElementSibling.classList.toggle("show")
+    var content = this.nextElementSibling;
+
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
 }
 
 // getting data
 db.collection('Locations').get().then(snapshot => {
     snapshot.docs.forEach(doc => {
         renderClinic(doc);
+
     });
 });
+
+function getInputVal(id) {
+  return document.getElementById(id).value;
+}
+
+function createModal(ID, title, forceStay, modalBody, cancel, submitBtn) {
+    // create the modal html in string representation
+    var modal = '<div class="modal fade" id="' + ID + '" tabindex="-1" role="dialog" aria-labelledby="Clinic ID" aria-hidden="false" data-keyboard="false">';
+    if (forceStay) {
+      modal = '<div class="modal fade" id="' + ID + '" tabindex="-1" role="dialog" aria-labelledby="Clinic ID" aria-hidden="false" data-backdrop="static" data-keyboard="false" >';
+    }
+    modal += '<div class="modal-dialog modal-dialog-centered" role="document">';
+    modal += '<div class="modal-content">';
+    modal += '<div class="modal-header">';
+    modal += '<h5 class="modal-title">' + title + '</h5>';
+    modal += '</div>';
+    modal += '<div class="modal-body">';
+    modal += modalBody;
+    modal += '</div>';
+    modal += '<div class="modal-footer">';
+    // add the cancel button if it is wanted
+    if (cancel) {
+      modal += '<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>';
+    }
+    modal += submitBtn;
+    modal += '</div></div></div></div>';
+    // makes the modal appear by converting the strings above into HTML
+    document.body.insertAdjacentHTML('beforeend', modal);
+    // handles if there are any page size changes
+    $('#' + ID).modal('handleUpdate');
+  }
+
+
+  function openRemoveModal() {
+
+    var removeClinicModalBtn = '<button type="button" id="removeClinicButtonFinal" class="btn btn-danger" data-dismiss="modal">Remove</button>';
+    var removeClinicBody = '<div class="form-group"><input id="clinicInput" type="text" class="form-control" name="clientIDBox" placeholder="Clinic ID" value=""></div>';
+    createModal('removeModal', 'Remove Clinic', true,
+      "Please Enter Your Clinic ID:" + removeClinicBody, true, removeClinicModalBtn); // create reset modal for future use
+    // makes the modal open
+    $('#removeModal').modal({
+      keyboard: false,
+      backdrop: 'static'
+    });
+
+    document.getElementById('clinicInput').value = "";
+
+    // this function deletes the individual clinic by hash
+      function deleteClinic() {
+
+        var clinicID = getInputVal('clinicInput');
+        var docRef = db.collection("Locations").doc(clinicID);
+
+        docRef.get().then(function(doc) {
+          if (doc.exists) {
+            db.collection("Locations").doc(clinicID).delete().then(function() {
+                console.log("Document successfully deleted!");
+                successAlert(clinicID);
+            }).catch(function(error) {
+                console.error("Error removing document: ", error);
+            });
+          } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+            errorAlert("No Such Document");
+          }
+
+        }).catch(function(error) {
+          console.log("Error getting document:", error);
+          errorAlert("Please Enter A Clinic ID.")
+        });
+
+      } // end of deleteClinic method
+
+    var removeBtnModal = document.getElementById('removeClinicButtonFinal');
+    removeBtnModal.addEventListener('click', deleteClinic);
+
+
+  }
+    // this opens the Remove Clinic Modal
+    document.getElementById("removeClinicMain").addEventListener('click', openRemoveModal);
+    document.getElementById("removeClinicSidebar").addEventListener('click', openRemoveModal);
+
+    function successAlert(message) {
+        var alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 50px;">' +
+          '<strong>Deleted Clinic ID: </strong> ' + message +
+          '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+          '<span aria-hidden="true">&times;</span> </button></div>',
+          already = $('.alert');
+        if (already.length > 0) {
+          already.remove();
+        }
+          document.body.insertAdjacentHTML('afterbegin', alert);
+        $('alert').alert();
+      }
+
+      function errorAlert(message) {
+          var alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 50px;">' +
+            '<strong>No Matching Key</strong> ' + message +
+            '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+            '<span aria-hidden="true">&times;</span> </button></div>',
+            already = $('.alert');
+          if (already.length > 0) {
+            already.remove();
+          }
+            document.body.insertAdjacentHTML('afterbegin', alert);
+          $('alert').alert();
+        }

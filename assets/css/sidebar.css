@@ -25,7 +25,19 @@
 #listOfLinks {
   list-style: none;
   padding-top: 20px;
+  padding-left: 0;
 }
+
+
+
+/* #listOfLinksManager > li:nth-child(2) {
+  background-color: #1c676a;
+  list-style: none;
+  padding-top: 20px;
+  padding-left: 0;
+  font-size: 12px;
+
+} */
 
 .links-sidebar a {
   text-decoration: none;
