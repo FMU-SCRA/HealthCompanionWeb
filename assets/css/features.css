@@ -23,6 +23,14 @@ section {
   position: relative;
 }
 
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
 #services {
   background-color: #65b4e4;
   width: 100%;
@@ -363,15 +371,19 @@ h1 {
 @media screen and (max-width: 1200px) {
   #blood-pressure-title {
     /* display: block; */
-    left: 26%;
     top: 4%;
+    padding-right: 25px;
+    text-align: right;
+    padding-top: 15px;
   }
 
   #services-title {
     /* display: block; */
     /* right: 20%; */
-    left: 55%;
-    top: 3%;
+    top: 0%;
+    padding-right: 25px;
+    text-align: right;
+    padding-top: 0px;
   }
 
   .mySlidesServices {
